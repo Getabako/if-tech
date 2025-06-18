@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if(Tech) マイクラで学ぶ未来スキル | if(塾)</title>
+    <meta name="description" content="if(Tech) マイクラで学ぶ未来スキル 冒険 × クリエイティブ マイクラで学ぶ未来スキル if(Tech) さあ、ひらめきと成長を手にする新しい冒険に出かけよう！ マインクラフトの世界で夢中になって遊ぶうちに、未来を生き抜く力が身につ">
+    <meta name="keywords" content="秋田市　プログラミング教室">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/phosphor-icons@1.4.2/src/css/icons.min.css" />
+    <style>
+        :root {
+            --green: #4CAF50;
+            --green-dark: #2E7D32;
+            --emerald: #00C853;
+            --yellow: #FFEB3B;
+            --blue: #2196F3;
+            --blue-light: #E3F2FD;
+            --gray-bg: #F5F5F5;
+            --game-gold: #FFD700;
+            --game-silver: #C0C0C0;
+            --game-bronze: #CD7F32;
+        }
+        
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans JP', sans-serif;
+            background: linear-gradient(45deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 10s ease infinite;
+            line-height: 1.8;
+            font-size: 18px;
+            overflow-x: hidden;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* ゲーム風カーソル */
+        body {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="%23FFD700" stroke="%23000" stroke-width="2"/><circle cx="10" cy="10" r="3" fill="%23000"/></svg>'), auto;
+        }
+        
+        /* パーティクル効果 */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--game-gold);
+            border-radius: 50%;
+            animation: float-particle 6s infinite linear;
+            opacity: 0.7;
+        }
+        
+        @keyframes float-particle {
+            0% {
+                transform: translateY(100vh) translateX(0px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) translateX(50px);
+                opacity: 0;
+            }
+        }
+        
+        .pixel-font {
+            font-family: 'Press Start 2P', cursive;
+        }
+        
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--emerald) 0%, var(--green) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .cta-button {
+            background: linear-gradient(145deg, var(--game-gold), #FFA000);
+            color: #333;
+            padding: 20px 40px;
+            border-radius: 12px;
+            font-weight: bold;
+            text-align: center;
+            display: inline-block;
+            transition: all 0.3s;
+            text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 16px rgba(255, 215, 0, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            animation: pulse-glow 2s infinite;
+            text-decoration: none;
+            border: 3px solid #FFD700;
+            font-size: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.7) 0%, transparent 70%);
+            transition: all 0.3s;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 24px rgba(255, 215, 0, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.6);
+        }
+        
+        .cta-button:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+        
+        @keyframes pulse-glow {
+            0% { 
+                box-shadow: 0 8px 16px rgba(255, 215, 0, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.5), 0 0 0 0 rgba(255, 215, 0, 0.7);
+            }
+            50% { 
+                box-shadow: 0 8px 16px rgba(255, 215, 0, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.5), 0 0 0 10px rgba(255, 215, 0, 0);
+            }
+            100% { 
+                box-shadow: 0 8px 16px rgba(255, 215, 0, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.5), 0 0 0 0 rgba(255, 215, 0, 0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .card {
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 24px 0;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, var(--game-gold), var(--emerald), var(--blue), var(--game-gold));
+            background-size: 400% 400%;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            animation: rainbow-border 4s linear infinite;
+            z-index: -1;
+        }
+        
+        .card:hover::before {
+            opacity: 1;
+        }
+        
+        .card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-color: var(--game-gold);
+        }
+        
+        .card:active {
+            transform: translateY(-8px) scale(1.01);
+        }
+        
+        @keyframes rainbow-border {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* ゲーム風バッジ */
+        .game-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--game-gold), #FFA000);
+            color: #333;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+            animation: badge-glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes badge-glow {
+            from { box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3); }
+            to { box-shadow: 0 4px 16px rgba(255, 215, 0, 0.6); }
+        }
+        
+        /* レベルアップ風プログレスバー */
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: linear-gradient(90deg, #333, #555);
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--game-gold), var(--emerald));
+            border-radius: 6px;
+            transition: width 2s ease;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        .minecraft-block {
+            width: 80px;
+            height: 80px;
+            background-size: cover;
+            display: inline-block;
+            transition: transform 0.3s;
+            margin: 8px;
+        }
+        
+        .minecraft-block:hover {
+            transform: scale(1.1);
+        }
+        
+        .grass-block {
+            background-image: url('https://i.imgur.com/JbQUzUZ.png');
+        }
+        
+        .diamond-block {
+            background-image: url('https://i.imgur.com/8qLOoRF.png');
+        }
+        
+        .redstone-block {
+            background-image: url('https://i.imgur.com/KqdV6lZ.png');
+        }
+        
+        h1 {
+            font-size: 3rem;
+            line-height: 1.4;
+            margin-bottom: 24px;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            line-height: 1.4;
+            margin-bottom: 32px;
+        }
+        
+        h3 {
+            font-size: 2rem;
+            line-height: 1.4;
+            margin-bottom: 24px;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @media (max-width: 768px) {
+            .section {
+                padding: 40px 15px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.75rem;
+            }
+            h3 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- パーティクル効果 -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- ゲーム風通知システム -->
+    <div id="notification-system" style="position: fixed; top: 20px; right: 20px; z-index: 1000;"></div>
+    
+    <!-- ヒーローセクション -->
+    <section class="hero-section">
+        <div class="text-center text-white px-8" style="position: relative; z-index: 10;">
+            <div class="mb-8">
+                <img src="https://via.placeholder.com/600x300/4CAF50/ffffff?text=マインクラフト教室のヒーロー画像" 
+                     alt="カラフルなマインクラフトの世界で楽しく学ぶ子どもたちの様子・横長" 
+                     class="rounded-lg shadow-lg mx-auto mb-6" style="max-width: 100%; height: auto;">
+                <div class="flex justify-center mb-6">
+                    <div class="minecraft-block grass-block float game-clickable" onclick="showNotification('グラスブロック GET! +10 XP')"></div>
+                    <div class="minecraft-block diamond-block float game-clickable" onclick="showNotification('ダイヤモンド発見! +50 XP')" style="animation-delay: 0.5s"></div>
+                    <div class="minecraft-block redstone-block float game-clickable" onclick="showNotification('レッドストーン習得! +25 XP')" style="animation-delay: 1s"></div>
+                </div>
+            </div>
+            <div class="game-badge mb-4">🎮 LEVEL 1 プログラミング冒険者</div>
+            <h1 class="font-bold mb-6">冒険 × クリエイティブ</h1>
+            <h2 class="pixel-font text-yellow-300 mb-8">マイクラで学ぶ未来スキル</h2>
+            <div class="bg-white bg-opacity-20 backdrop-filter backdrop-blur-sm rounded-lg p-6 inline-block mb-8 game-logo">
+                <h3 class="text-white font-bold">if(Tech)</h3>
+                <div class="progress-bar mt-4">
+                    <div class="progress-fill" style="width: 85%;" data-level="冒険レベル 85%"></div>
+                </div>
+            </div>
+            <img src="https://via.placeholder.com/400x250/FF6B6B/ffffff?text=楽しく学ぶイメージ" 
+                 alt="子どもたちがゲーム感覚でプログラミングを学んでいる楽しい授業風景・横長" 
+                 class="rounded-lg shadow-lg mx-auto mb-6" style="max-width: 100%; height: auto;">
+            <p class="text-xl mb-8">さあ、ひらめきと成長を手にする新しい冒険に出かけよう！<br>
+            マインクラフトの世界で夢中になって遊ぶうちに、未来を生き抜く力が身につく！</p>
+            <p class="text-lg mb-12">遊びの延長で、いつの間にか"なりたい自分"になれる場所！</p>
+            <a href="#contact" class="cta-button" onclick="showNotification('クエスト開始! 無料体験への道')">🎯 無料体験クエストを開始する →</a>
+        </div>
+    </section>
+
+    <!-- Why if(Tech)? -->
+    <section class="section bg-white" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+        <div class="text-center">
+            <div class="game-badge mb-4">🏆 ACHIEVEMENT UNLOCKED</div>
+            <h2 class="text-gray-800 font-bold">Why if(Tech)?</h2>
+            <div class="text-3xl font-bold text-green-600 mb-8">遊びが学びに変わる!</div>
+            
+            <img src="https://via.placeholder.com/800x400/2196F3/ffffff?text=遊びから学びへの変化プロセス" 
+                 alt="ゲームから創造、そしてスキル習得への流れを示すインフォグラフィック・横長" 
+                 class="rounded-lg shadow-lg mx-auto mb-12" style="max-width: 100%; height: auto;">
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="card text-center game-clickable" onclick="showNotification('🎮 創造力スキル +15 XP!')">
+                    <img src="https://via.placeholder.com/300x200/4CAF50/ffffff?text=世界創造イメージ" 
+                         alt="マインクラフトで建物や世界を創造している様子・横長" 
+                         class="rounded-lg shadow-lg w-full mb-4" style="height: 150px; object-fit: cover;">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-3xl">🎮</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">自分だけの世界をつくれる！</h3>
+                    <p>想像したものが何でも形になる魔法のような体験</p>
+                    <div class="progress-bar mt-4">
+                        <div class="progress-fill" style="width: 90%;"></div>
+                    </div>
+                </div>
+                
+                <div class="card text-center game-clickable" onclick="showNotification('⌨️ プログラミングスキル +20 XP!')">
+                    <img src="https://via.placeholder.com/300x200/FF9800/ffffff?text=プログラミング学習" 
+                         alt="子どもがゲーム感覚でコードを書いている様子・横長" 
+                         class="rounded-lg shadow-lg w-full mb-4" style="height: 150px; object-fit: cover;">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-3xl">⌨️</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">ゲームで遊びながらプログラミングが学べる！</h3>
+                    <p>難しい勉強ではなく、楽しい冒険の中で自然と身につく</p>
+                    <div class="progress-bar mt-4">
+                        <div class="progress-fill" style="width: 85%;"></div>
+                    </div>
+                </div>
+                
+                <div class="card text-center game-clickable" onclick="showNotification('💡 アイデア実現スキル +18 XP!')">
+                    <img src="https://via.placeholder.com/300x200/9C27B0/ffffff?text=アイデア実現" 
+                         alt="子どものアイデアが実際の作品として形になっている様子・横長" 
+                         class="rounded-lg shadow-lg w-full mb-4" style="height: 150px; object-fit: cover;">
+                    <div class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-3xl">💡</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">自分のアイデアが実現する！</h3>
+                    <p>頭の中の「こうしたい！」が本当にカタチになる感動</p>
+                    <div class="progress-bar mt-4">
+                        <div class="progress-fill" style="width: 95%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- if(塾)・なるテックの紹介 -->
+    <section class="section" style="background-color: #F5F5F5;">
+        <div class="text-center mb-12">
+            <h2 class="text-gray-800 font-bold">信頼できる運営体制</h2>
+            <p class="text-xl text-gray-600">地域に根ざした教育×最先端技術</p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="card game-clickable" onclick="showNotification('🏫 if(塾)情報を確認! +10 XP')">
+                <img src="https://via.placeholder.com/400x300/4CAF50/ffffff?text=if(塾)の教室風景" 
+                     alt="if(塾)の現代的な教室で学ぶ子どもたちの様子・横長" 
+                     class="rounded-lg shadow-lg w-full mb-6" style="height: 200px; object-fit: cover;">
+                <div class="game-badge mb-2">🎓 EDUCATION PARTNER</div>
+                <h3 class="text-2xl font-bold text-green-600 mb-4">if(塾)</h3>
+                <p class="mb-4">秋田県秋田市にある未来型のプログラミング教室です。AIや起業を学べるコースを提供し、子どもたちが自分の得意を活かして社会とつながる力を育てます。自由な学びの場として、地域や企業と連携したプロジェクトにも取り組んでいます。</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 95%;" data-label="信頼度 95%"></div>
+                </div>
+            </div>
+            
+            <div class="card game-clickable" onclick="showNotification('🔧 なるテック情報を確認! +10 XP')">
+                <img src="https://via.placeholder.com/400x300/2196F3/ffffff?text=なるテックのオフィス" 
+                     alt="なるテックの現代的なIT企業オフィス環境・横長" 
+                     class="rounded-lg shadow-lg w-full mb-6" style="height: 200px; object-fit: cover;">
+                <div class="game-badge mb-2">⚡ TECH PARTNER</div>
+                <h3 class="text-2xl font-bold text-blue-600 mb-4">なるテック</h3>
+                <p class="mb-4">秋田県東成瀬村が出資する第三セクター方式の企業です。テクノロジーを活用して地域課題の解決や地方創生に取り組み、システム開発やITコンサルティング、クリエイティブ制作などを手がけています。</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 92%;" data-label="技術力 92%"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mt-12">
+            <h3 class="text-2xl font-bold text-center mb-8">多彩な講師陣</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="text-center">
+                    <h4 class="font-bold mb-2">臨床心理専門講師</h4>
+                    <p class="text-sm">表現が苦手な子が自分の思いを言葉にできるようサポート</p>
+                </div>
+                
+                <div class="text-center">
+                    <h4 class="font-bold mb-2">社会課題解決講師</h4>
+                    <p class="text-sm">信頼関係を築く力やチームで動く力に長けた講師</p>
+                </div>
+                
+                <div class="text-center">
+                    <h4 class="font-bold mb-2">コミュニケーション講師</h4>
+                    <p class="text-sm">「伝える力」「気づく力」に優れた講師</p>
+                </div>
+                
+                <div class="text-center">
+                    <h4 class="font-bold mb-2">クリエイター講師</h4>
+                    <p class="text-sm">発想力と開発力を兼ね備えた講師</p>
+                </div>
+            </div>
+            
+            <div class="bg-green-50 p-6 rounded-lg">
+                <h4 class="text-xl font-bold text-center mb-4">確かな実績</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                    <div>
+                        <div class="text-3xl font-bold text-green-600">500+</div>
+                        <div class="text-gray-600">支援した子どもたち</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-green-600">15+</div>
+                        <div class="text-gray-600">地域・企業連携プロジェクト</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-green-600">高校生</div>
+                        <div class="text-gray-600">起業経験者も在籍</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- なぜプログラミングが必要？ -->
+    <section class="section bg-white">
+        <div class="text-center mb-12">
+            <h2 class="text-gray-800 font-bold">なぜ、今プログラミングが必要なの？</h2>
+        </div>
+        
+        <div class="card mb-12">
+            <p class="text-xl text-center mb-8">小学校でも「プログラミング」が必修になった今、求められているのは"答えを覚える力"ではなく、<strong>"自分で考えて動く力"</strong>です。</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-red-600 mb-4">従来の「詰め込み型」</h3>
+                    <div class="bg-red-50 p-6 rounded-lg">
+                        <p>答えを覚える<br>指示に従う<br>決まったやり方</p>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-green-600 mb-4">これからの時代</h3>
+                    <div class="bg-green-50 p-6 rounded-lg">
+                        <p>創造する力<br>問題を見つけ解決する力<br>想定外に対応する力</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="card text-center">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-2xl">🧠</span>
+                </div>
+                <h3 class="text-xl font-bold mb-4">論理的思考力</h3>
+                <p>日常の問題や課題を筋道立てて解決する力に直結します。「なぜうまくいかないのか」「どうすればよくなるか」を冷静に考える力は、将来どんな仕事にも役立つ"生きる力"です。</p>
+            </div>
+            
+            <div class="card text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-2xl">🔄</span>
+                </div>
+                <h3 class="text-xl font-bold mb-4">試行錯誤力</h3>
+                <p>失敗しても粘り強く取り組む姿勢を育てます。上手くいかなかったらやり方を変える、その繰り返しが自信や応用力につながります。</p>
+            </div>
+            
+            <div class="card text-center">
+                <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-2xl">💻</span>
+                </div>
+                <h3 class="text-xl font-bold mb-4">総合的ICTスキル</h3>
+                <p>タイピングやソフトの操作だけでなく、情報収集・整理・発信など、これからの社会で不可欠な"デジタル時代の基礎体力"が育まれます。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- なぜMinecraft？ -->
+    <section class="section" style="background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);">
+        <div class="text-center text-white mb-12">
+            <div class="game-badge mb-4">⚔️ GAME SELECTION</div>
+            <h2 class="font-bold">なぜMinecraft？</h2>
+            <p class="text-xl">世界中で愛される学習に最適なゲーム</p>
+        </div>
+        
+        <img src="https://via.placeholder.com/800x400/8BC34A/ffffff?text=Minecraftの世界" 
+             alt="カラフルなマインクラフトのブロック世界とキャラクター・横長" 
+             class="rounded-lg shadow-lg mx-auto mb-8" style="max-width: 100%; height: auto;">
+        
+        <div class="card mb-8 game-clickable" onclick="showNotification('📚 Minecraft情報を習得! +30 XP')">
+            <h3 class="text-2xl font-bold text-center mb-6">Minecraftとは</h3>
+            <p class="mb-6">Minecraftは、ブロックを自由に組み合わせて建物や仕組みをつくれる、世界中で愛されるサンドボックス型のゲームです。自由度の高さが特長で、自分のアイデアを形にする創造性、計画を立てて取り組む力、失敗から学ぶ試行錯誤の姿勢など、教育に直結する多くの力を育てる土壌があります。</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <img src="https://via.placeholder.com/400x300/FF9800/ffffff?text=協力して建築" 
+                         alt="複数のプレイヤーが協力して大きな建築物を作っている様子・横長" 
+                         class="rounded-lg shadow-lg w-full mb-4" style="height: 200px; object-fit: cover;">
+                    <p>他の人と協力してワールドを作る中で、コミュニケーション力やチームでのものづくりの楽しさも自然と学ぶことができます。</p>
+                </div>
+                
+                <div>
+                    <img src="https://via.placeholder.com/400x300/9C27B0/ffffff?text=情報検索学習" 
+                         alt="パソコンで情報を調べながらマインクラフトで学習する子ども・横長" 
+                         class="rounded-lg shadow-lg w-full mb-4" style="height: 200px; object-fit: cover;">
+                    <p>「これをやってみたい！」と思ったときに、自ら検索し、情報を理解し、試してみることが当たり前に求められます。そのプロセスを通じて、主体的に学ぶ姿勢や"自分で調べて自分でできる"力が自然と育っていきます。</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h3 class="text-2xl font-bold text-center mb-6">Minecraftの魅力</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                    <h4 class="text-xl font-bold mb-4">✨ 無限の自由さ</h4>
+                    <p class="mb-4">プレイヤーの発想次第で何でもつくれる"自由さ"。家や街をつくる建築から、レッドストーン回路を使った装置の構築、さらにはコードを使って自動化やアニメーションの表現まで、遊び方に制限がありません。</p>
+                    
+                    <h4 class="text-xl font-bold mb-4">🎯 決まった正解がない</h4>
+                    <p class="mb-4">自分でゴールを決め、計画し、工夫して完成させる過程が、創造性と主体性を育みます。失敗してもやり直しがきく環境で、試行錯誤を通じて学ぶことの面白さを体感できます。</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-4">🧩 自然と身につくスキル</h4>
+                    <p class="mb-4">ブロックの配置一つで成果が変わるため、空間認識力やプログラミング的思考も自然と身につきます。</p>
+                    
+                    <h4 class="text-xl font-bold mb-4">👥 コミュニケーション力も育つ</h4>
+                    <p class="mb-4">他者との共同制作や発表を通じて、コミュニケーション力やプレゼンテーション力も伸ばせるなど、Minecraftは"遊びの中に学びが詰まっている"理想的な教材です。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 教室の理念・特徴 -->
+    <section class="section bg-white">
+        <div class="text-center mb-12">
+            <h2 class="text-gray-800 font-bold">教室の理念・大切にしていること</h2>
+        </div>
+        
+        <div class="card text-center mb-12">
+            <h3 class="text-2xl font-bold mb-6">「やってみたい！」を思いきり応援してくれる場所</h3>
+            <p class="text-xl mb-6">好きなことに夢中になってOK！ うまくいかなくても大丈夫！</p>
+            <p class="mb-6">自分のアイデアで新しいものをつくったり、誰かと力を合わせて作品を完成させたり、そんな体験を通じて"本当の自分"を見つけていく教室です。</p>
+            <p class="text-lg text-green-600 font-bold">君の"好き"が、未来をつくる力になる――それがこの教室の大切にしていることです。</p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="card">
+                <h3 class="text-2xl font-bold mb-6">こんな子におすすめ</h3>
+                <p class="mb-4">ゲームやYouTubeが好き。だけど、学校はちょっと苦手だったり、人と話すのに勇気がいるときもある。そんなキミにこそ来てほしい場所です。</p>
+                <ul class="space-y-2 text-gray-700">
+                    <li>✓ 「じっと座って勉強するのはニガテ」</li>
+                    <li>✓ 「得意なことがわからない」</li>
+                    <li>✓ 「不登校でも大丈夫」</li>
+                    <li>✓ 「将来プログラミングをやってみたい」</li>
+                    <li>✓ 「ITに強くなりたい」</li>
+                </ul>
+                <p class="mt-4 font-bold text-green-600">みんなちがって、みんないい。どんなキミも待ってます。</p>
+            </div>
+            
+            <div class="card">
+                <h3 class="text-2xl font-bold mb-6">選ばれる理由</h3>
+                <p class="mb-4">この教室では、毎月、自分の作品やアイデアをみんなの前で発表する機会があります。「伝える」ことを当たり前にしていくことで、自分の思いやこだわりをしっかり言葉にできるようになり、それが人の心を動かし、応援してくれる"味方"を増やしていきます。</p>
+                <p>発表を重ねるごとに「もっとすごいものを作りたい！」という気持ちが芽生え、作品の規模やクオリティもどんどんレベルアップ。そんなふうにして、"好きなこと"が"夢"になり、やがて"実現"するまでを、楽しみながら自然に積み重ねていける――それがこの教室の最大の魅力です。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 学べるスキル（詳細） -->
+    <section class="section" style="background-color: #F5F5F5;">
+        <div class="text-center mb-12">
+            <h2 class="text-gray-800 font-bold">学べるスキル</h2>
+            <p class="text-xl text-gray-600">マイクラで身につく未来の力</p>
+        </div>
+        
+        <!-- 自分の好きと得意に気づく力 -->
+        <div class="card mb-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">自分の"好き"と"得意"に気づく力</h3>
+                    <p class="mb-4">たとえば、マインクラフトで「コマンドって面白い！」と夢中になっていた子が、自分で仕組みをつくることにハマり、やがて本格的なゲームづくりに挑戦。</p>
+                    <p class="mb-4">また、好きなYouTuberの動画を毎日見ているうちに、「自分もやってみたい！」という気持ちが芽生えて、自分で企画を考え、編集ソフトを使って動画を作り始める子もいます。</p>
+                    <p class="text-green-600 font-bold">最初はただ"好き"だったことが、いつの間にか"得意"になっていく。そんな「気づき」のきっかけがたくさんあるのがこの教室です。</p>
+                </div>
+                <div>
+                    <div class="bg-orange-100 p-6 rounded-lg">
+                        <h4 class="font-bold mb-2">好きから得意への変化</h4>
+                        <p class="text-sm">子どもが興味を持って学習に取り組む過程を大切にします</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- プレゼンテーション力 -->
+        <div class="card mb-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                    <div class="bg-green-100 p-6 rounded-lg">
+                        <h4 class="font-bold mb-2">プレゼンテーション</h4>
+                        <p class="text-sm">子どもが自信を持って発表している様子</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">社会に発信するプレゼンテーション力</h3>
+                    <p class="mb-4">この教室では、普段から自分のアイデアや作品を発表する機会がたくさんあります。どんな想いでつくったのか、どこを工夫したのか――そんな「伝える力」を育てることを大切にしています。</p>
+                    <p class="mb-4">伝えることで、共感してくれる人や応援してくれる人が現れ、思い描いたことが実現へと近づいていきます。</p>
+                    <p class="text-blue-600 font-bold">プレゼンテーションに慣れておくことは、将来の就職活動や起業、そして誰かと協力して何かを進めていく"生きる力"として、必ず役に立ちます。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- マイクラで学べる具体的スキル -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="card text-center">
+                <h4 class="text-xl font-bold mb-4">コマンドでゲームを操ろう</h4>
+                <p>マイクラに隠された「コマンド機能」を使えば、天気を変えたり、テレポートしたり、ゲームのルールそのものを操作することができます。プログラミングの基礎に触れながら、自分のアイデアを思い通りに実現する力が身につきます。</p>
+            </div>
+            
+            <div class="card text-center">
+                <h4 class="text-xl font-bold mb-4">レッドストーンで仕組みを考えよう</h4>
+                <p>マイクラの"レッドストーン"は、まるで電気のように信号を流して動かすアイテムです。ドアが自動で開く仕組みや、トラップのようなしかけも自分でつくれます。「どう動かしたいか」「そのためにどんな順番が必要か」を考えるうちに、自然と論理的思考力が育っていきます。</p>
+            </div>
+            
+            <div class="card text-center">
+                <h4 class="text-xl font-bold mb-4">キミだけの世界をつくろう</h4>
+                <p>「こんな世界があったらいいな」をカタチにできるのが、マインクラフトのすごいところ。現実では難しい理想の街や空想の世界も、思いのままに作れます。「空を飛べる家」「地下迷宮」「空中都市」――キミの想像がそのまま創造につながります。</p>
+            </div>
+            
+            <div class="card text-center">
+                <h4 class="text-xl font-bold mb-4">3Dモデリングの基礎が学べる</h4>
+                <p>マイクラの世界はすべて3Dの立体ブロックでできています。ブロックを積み重ねて建物や構造物を作ることは、実は3Dモデリングの基礎そのもの。自分の頭の中にあるイメージを空間に表現する力や、構造を考えて配置する力が自然と育まれます。</p>
+            </div>
+            
+            <div class="card text-center">
+                <h4 class="text-xl font-bold mb-4">作品を動画にしよう</h4>
+                <p>マインクラフトで作った世界を「もっと見てほしい！」と思ったら、動画にして発信することもできます。ふだんYouTubeで動画を見る子どもたちにとって、自分でも動画を作ることはとても身近な挑戦。編集やナレーションを工夫することで、伝えたいことをどう届けるかを考える力も育ちます。</p>
+            </div>
+            
+            <div class="card text-center">
+                <h4 class="text-xl font-bold mb-4">コマンドを組み合わせて仕組みをつくろう</h4>
+                <p>Scratchのようにブロックを組み合わせる感覚で、マイクラでは「コマンド」を組み合わせて複雑な動きを作ることができます。複数のコマンドを順番に並べたり条件を加えたりすることで、オリジナルのルールやシステムを作れる"データパック"が完成します。</p>
+            </div>
+        </div>
+        
+        <div class="text-center mt-12">
+            <div class="card inline-block">
+                <h3 class="text-2xl font-bold text-green-600 mb-4">全てのスキルがマインクラフトで楽しく学べる！</h3>
+                <p class="text-lg">コマンド、レッドストーン、プレゼン、動画編集、3D表現――全部、マインクラフトの世界で体験できる！ 遊びの中で自然と学べて、しかもすごく楽しい！ "自分の未来を切り拓く力"が、気づかないうちにどんどん身についていくのが、この教室のすごいところです。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 授業形式・サポート体制 -->
+    <section class="section bg-white">
+        <div class="text-center mb-12">
+            <h2 class="text-gray-800 font-bold">授業形式・サポート体制</h2>
+            <p class="text-xl text-gray-600">安心して学べる環境</p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+            <div class="card">
+                <h3 class="text-2xl font-bold mb-4">完全オンライン授業</h3>
+                <p class="mb-4">送迎なし・移動なし！ どこに住んでいても、全国どこからでも同じレベルの授業を受けられます。遠方の子も、スケジュールに合わせて気軽に参加できるのが魅力。</p>
+                <p>マイクラとZoomを併用して、画面越しでもしっかりサポート。自分の好きな場所から安心して取り組めます。</p>
+            </div>
+            
+            <div class="card">
+                <h3 class="text-2xl font-bold mb-4">どうやるの？ すぐ教えるよ！</h3>
+                <p class="mb-4">リアルタイムの授業だから、わからないことがあってもすぐ質問できる！ AIや先生が丁寧に教えてくれるので、わからないまま置いていかれることはありません。</p>
+                <p>友達と一緒に取り組める安心感もあって、つまづかずに楽しく続けられます。</p>
+            </div>
+        </div>
+        
+        <!-- 発表会について -->
+        <div class="card mb-12">
+            <h3 class="text-2xl font-bold text-center mb-8">毎月の発表会</h3>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <div>
+                    <h4 class="text-xl font-bold mb-4">ワールドツアー</h4>
+                    <p class="mb-4">発表の場はただの発表じゃない！ それぞれが自分のマイクラワールドを案内しながら、「こだわりポイント」や「工夫した点」「うまくいかなかったけど挑戦したこと」などを紹介していきます。</p>
+                    <p>自分の作品をみんなに見てもらえるうれしさや、アドバイスや応援の声をもらえることで、次のアイデアがどんどん湧いてきます。</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-4">発表内容例</h4>
+                    <ul class="space-y-3">
+                        <li class="bg-green-50 p-3 rounded">「電車のまち by タクト（小4）」<br>好きな電車を再現したワールドに、秘密基地や発車メロディーまで作りこんだ</li>
+                        <li class="bg-blue-50 p-3 rounded">「アニマルパーク by ハルカ（小5）」<br>好きな生き物をモチーフにした遊園地ワールド</li>
+                        <li class="bg-yellow-50 p-3 rounded">「オートハウス by ヒロト（小6）」<br>家の中がまるごと自動で動く！レッドストーン装置だらけの家</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8 bg-yellow-50 p-6 rounded-lg">
+                <h5 class="font-bold text-lg mb-2">発表会日程</h5>
+                <p>毎月最終木曜日の17時から開催！家族も一緒に見学OK。Zoomを使ってオンラインで参加できるから、遠方の子も気軽に参加できます。</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h3 class="text-2xl font-bold text-center mb-6">授業形式・回数・時間</h3>
+            <div class="text-center">
+                <p class="text-lg mb-4">授業は週1回、完全オンライン形式で実施。全国どこからでも参加可能。参加人数は拡大中で、多くの仲間と一緒に切磋琢磨しながら楽しく学べる環境です。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 安全・安心サポート -->
+    <section class="section" style="background-color: #E3F2FD;">
+        <div class="text-center mb-12">
+            <h2 class="text-gray-800 font-bold">安全＆安心サポート</h2>
+            <p class="text-xl text-blue-800">保護者も安心の仕組み</p>
+        </div>
+        
+        <div class="card mb-12">
+            <div class="text-center mb-8">
+                <div class="bg-blue-100 p-6 rounded-lg mx-auto mb-6 max-w-md">
+                    <h4 class="font-bold mb-2">AIアセスメントシステム「Kaika」</h4>
+                    <p class="text-sm">データ分析によるサポート体制</p>
+                </div>
+            </div>
+            <h3 class="text-2xl font-bold text-center mb-6">AIアセスメントシステム「Kaika」</h3>
+            <p class="text-center mb-6">この教室では、AIアセスメントシステム「Kaika」を導入し、毎回の授業で「やること」や「進捗状況」をアンケートで取得。さらに、マインクラフトの行動ログも記録・分析。</p>
+            <p class="text-center text-blue-600 font-bold">すべての子どもが「得意」や「好き」を見つけ、やりたいことで自分の人生を切り拓けるよう、専門家の監修のもと、システムとデータに基づいた手厚いサポート体制を整えています。</p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="card">
+                <h3 class="text-2xl font-bold mb-4">安全なチャット環境</h3>
+                <p>Discordサーバーを利用して、安心して相談や質問ができる環境を整えています。仲間や講師とのコミュニケーションがスムーズで、困ったときもすぐにサポートが届きます。</p>
+            </div>
+            
+            <div class="card">
+                <h3 class="text-2xl font-bold mb-4">保護者専用アプリ「Kaika」</h3>
+                <p>お子さまの活動や成長の様子をリアルタイムでチェック可能。チャット機能で講師と直接やり取りできるから、保護者の方も安心して見守ることができます。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 実績・体験談 -->
+    <section class="section bg-white">
+        <div class="text-center mb-12">
+            <h2 class="text-gray-800 font-bold">実績・体験談</h2>
+            <p class="text-xl text-gray-600">実際に通っている子どもたちと保護者の声</p>
+        </div>
+        
+        <img src="https://via.placeholder.com/600x300/FF6B6B/ffffff?text=成功した生徒たちの集合写真" 
+             alt="if(Tech)で学んだ生徒たちの笑顔の集合写真・横長" 
+             class="rounded-lg shadow-lg mx-auto mb-12" style="max-width: 100%; height: auto;">
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div class="text-center card game-clickable" onclick="showNotification('🎯 継続率実績確認! +25 XP')">
+                <div class="text-4xl font-bold text-green-600 mb-2">96%</div>
+                <div class="text-lg text-gray-600 mb-4">継続率</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 96%;"></div>
+                </div>
+                <div class="game-badge mt-4">🏆 RETENTION MASTER</div>
+            </div>
+            <div class="text-center card game-clickable" onclick="showNotification('👥 生徒数実績確認! +25 XP')">
+                <div class="text-4xl font-bold text-green-600 mb-2">150+</div>
+                <div class="text-lg text-gray-600 mb-4">生徒数</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 100%;"></div>
+                </div>
+                <div class="game-badge mt-4">🌟 STUDENT ARMY</div>
+            </div>
+            <div class="text-center card game-clickable" onclick="showNotification('✨ 入会率実績確認! +25 XP')">
+                <div class="text-4xl font-bold text-green-600 mb-2">92%</div>
+                <div class="text-lg text-gray-600 mb-4">体験後入会率</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 92%;"></div>
+                </div>
+                <div class="game-badge mt-4">💎 CONVERSION KING</div>
+            </div>
+        </div>
+        
+        <div class="bg-green-50 text-center p-6 rounded-lg mb-12">
+            <p class="font-bold text-green-800 text-xl">初回体験後の入会率92%！</p>
+            <p class="text-lg text-green-600 mt-2">まずは無料体験から始めてみませんか？</p>
+        </div>
+        
+        <!-- 体験談 -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div class="card">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-white font-bold">A</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold">Aくん（小4）& 保護者</h4>
+                        <div class="text-yellow-500">★★★★★</div>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <strong>Before：</strong>「パソコンとか苦手…」と最初は戸惑っていたAくん。
+                    </div>
+                    <div>
+                        <strong>After：</strong>通うちに好きな電車をマイクラで再現することに夢中になり、今では自作の鉄道ワールドを使ってプレゼンまでできるように！
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded">
+                        <strong>保護者の声：</strong>「うちの子、飽きっぽくて続くか心配でしたが、今では毎週の授業を楽しみにしています。集中力と自信がついたように思います」
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-white font-bold">B</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold">Bさん（小5）</h4>
+                        <div class="text-yellow-500">★★★★★</div>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <strong>Before：</strong>「学校以外で勉強なんてしたくない」と言っていたBさん。
+                    </div>
+                    <div>
+                        <strong>After：</strong>動画編集が楽しくなり、発表会でみんなに動画を見せたとき「すごい！」と言われたのが嬉しくて、今では自主的に編集ソフトも学習中！
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- よくある質問 -->
+    <section class="section" style="background-color: #F5F5F5;">
+        <div class="text-center mb-12">
+            <h2 class="text-gray-800 font-bold">よくある質問</h2>
+        </div>
+        
+        <div class="max-w-4xl mx-auto space-y-6">
+            <div class="card">
+                <h4 class="text-xl font-bold mb-4">パソコン未経験でも大丈夫ですか？</h4>
+                <p>もちろん大丈夫です！最初はマウスの使い方から丁寧にサポートします。講師が画面共有でリアルタイムに操作をお手伝いするので、安心してご参加ください。</p>
+            </div>
+            
+            <div class="card">
+                <h4 class="text-xl font-bold mb-4">何名クラスですか？</h4>
+                <p>少人数制で、先生1人に対して生徒4〜6名程度です。一人ひとりにしっかりと目が届く環境で、質問もしやすい人数設定にしています。</p>
+            </div>
+            
+            <div class="card">
+                <h4 class="text-xl font-bold mb-4">曜日・時間はどうなっていますか？</h4>
+                <p>毎週木曜日の17:00〜18:00を基本としていますが、お子さまのスケジュールに合わせて調整可能です。詳しくは体験時にご相談ください。</p>
+            </div>
+            
+            <div class="card">
+                <h4 class="text-xl font-bold mb-4">料金はどのくらいですか？</h4>
+                <p>月額料金や詳しい料金体系については、無料体験時に詳しくご説明いたします。まずはお気軽に体験からお試しください。</p>
+            </div>
+            
+            <div class="card">
+                <h4 class="text-xl font-bold mb-4">必要な持ち物はありますか？</h4>
+                <p>パソコン（Windows・Mac問わず）とインターネット環境があれば参加可能です。マインクラフトのライセンスをお持ちでない場合は、体験時にサポート方法をご案内します。</p>
+            </div>
+            
+            <div class="card">
+                <h4 class="text-xl font-bold mb-4">体験会の流れを教えてください</h4>
+                <p>①Zoomでの簡単な挨拶・説明（10分）②マインクラフトの基本操作体験（20分）③コマンド体験（20分）④質疑応答・今後のご案内（10分）という流れで、計60分程度を予定しています。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 無料体験申込 -->
+    <section id="contact" class="section" style="background: linear-gradient(135deg, #00C853 0%, #4CAF50 100%); color: white; position: relative; overflow: hidden;">
+        <div style="text-align: center; position: relative; z-index: 10;">
+            <div class="game-badge mb-4">🎯 FINAL QUEST</div>
+            <h2 style="font-weight: bold; margin-bottom: 24px; font-size: 2.5rem;">マインクラフトの世界で無料体験</h2>
+            <p style="font-size: 1.5rem; margin-bottom: 32px;">今すぐ無料体験！ マイクラで未来スキルを楽しく学ぼう</p>
+            
+            <img src="https://via.placeholder.com/600x400/4CAF50/ffffff?text=無料体験の様子" 
+                 alt="無料体験レッスンでマインクラフトを楽しむ子どもの集中している様子・横長" 
+                 class="rounded-lg shadow-lg mx-auto mb-12" style="max-width: 100%; height: auto;">
+            
+            <div class="card game-clickable" style="background: rgba(255,255,255,0.2); margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto;" onclick="showNotification('🎁 特典情報をチェック! +40 XP')">
+                <h3 style="font-weight: bold; font-size: 1.5rem; color: white; margin-bottom: 24px;">🎁 無料体験特典 🎁</h3>
+                <ul style="text-align: left; list-style: none; padding: 0;">
+                    <li style="margin-bottom: 16px; display: flex; align-items: start;">
+                        <span style="color: #FDD835; margin-right: 12px;">🎯</span>
+                        <span>プロ講師の授業が体験できる！</span>
+                    </li>
+                    <li style="margin-bottom: 16px; display: flex; align-items: start;">
+                        <span style="color: #FDD835; margin-right: 12px;">⚔️</span>
+                        <span>ここだけの「最強コマンドツール」付き</span>
+                    </li>
+                    <li style="margin-bottom: 16px; display: flex; align-items: start;">
+                        <span style="color: #FDD835; margin-right: 12px;">⏰</span>
+                        <span>60分授業1回でマイクラの世界を思いっきり楽しめます！</span>
+                    </li>
+                    <li style="margin-bottom: 16px; display: flex; align-items: start;">
+                        <span style="color: #FDD835; margin-right: 12px;">🎮</span>
+                        <span>専用Discord参加権＆仲間との交流</span>
+                    </li>
+                </ul>
+                
+                <div class="game-badge" style="background: linear-gradient(45deg, var(--game-gold), #FF6B6B); display: inline-block; margin-top: 24px; animation: badge-glow 1.5s ease-in-out infinite alternate;">
+                    🎨 今だけ：限定レアスキンプレゼント
+                </div>
+                
+                <div class="progress-bar mt-6">
+                    <div class="progress-fill" style="width: 100%;" data-label="特典充実度 MAX!"></div>
+                </div>
+            </div>
+            
+            <img src="https://via.placeholder.com/500x300/FF9800/ffffff?text=申し込み簡単ステップ" 
+                 alt="簡単3ステップで申し込み完了のプロセス図・横長" 
+                 class="rounded-lg shadow-lg mx-auto mb-8" style="max-width: 100%; height: auto;">
+            
+            <div style="margin-bottom: 32px;">
+                <div class="game-badge mb-4">⚡ INSTANT REGISTRATION</div>
+                <p style="font-size: 1.125rem; margin-bottom: 16px;">お申し込みは最短1分で完了します</p>
+                <p style="font-size: 1.125rem; margin-bottom: 24px;">クレジットカード不要・完全無料</p>
+                <a href="https://if-juku.net/trial" class="cta-button" target="_blank" rel="noopener" onclick="showNotification('🚀 クエスト開始! 冒険の旅が始まります!')">🎯 無料体験クエストを開始する →</a>
+                <div style="margin-top: 24px;">
+                    <a href="https://if-juku.net/" style="color: white; text-decoration: underline;" target="_blank" rel="noopener" class="game-clickable" onclick="showNotification('🏠 本拠地への帰還! +5 XP')">🏠 if(塾)公式サイトはこちら</a>
+                </div>
+            </div>
+            
+            <div class="game-badge" style="background: linear-gradient(45deg, #FF6B6B, #4ECDC4); animation: rainbow-border 3s linear infinite;">
+                🎊 冒険者よ、新たな世界が君を待っている！
+            </div>
+        </div>
+        
+        <!-- 背景の動的要素 -->
+        <div style="position: absolute; top: 10%; left: 10%; width: 60px; height: 60px; background: rgba(255, 255, 255, 0.1); border-radius: 8px; animation: float 4s ease-in-out infinite;"></div>
+        <div style="position: absolute; top: 60%; right: 15%; width: 40px; height: 40px; background: rgba(255, 215, 0, 0.2); border-radius: 8px; animation: float 3s ease-in-out infinite reverse;"></div>
+        <div style="position: absolute; bottom: 20%; left: 20%; width: 50px; height: 50px; background: rgba(76, 175, 80, 0.15); border-radius: 8px; animation: float 5s ease-in-out infinite;"></div>
+    </section>
+
+    <!-- お問い合わせ -->
+    <section class="section" style="background-color: #F5F5F5;">
+        <div style="text-align: center;">
+            <h2 style="color: #333; font-weight: bold; margin-bottom: 32px; font-size: 2.5rem;">お問い合わせ</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 32px;">
+                <div class="card" style="text-align: center;">
+                    <div style="font-size: 2rem; margin-bottom: 16px;">📞</div>
+                    <h3 style="font-weight: bold; margin-bottom: 8px;">お電話</h3>
+                    <p style="color: #2196F3; font-weight: bold;">018-838-6462</p>
+                    <p style="font-size: 0.875rem; color: #666;">平日 10:00〜18:00</p>
+                </div>
+                
+                <div class="card" style="text-align: center;">
+                    <div style="font-size: 2rem; margin-bottom: 16px;">💬</div>
+                    <h3 style="font-weight: bold; margin-bottom: 8px;">LINE</h3>
+                    <a href="https://lin.ee/lGK9c4Nx" style="background: #4CAF50; color: white; padding: 8px 24px; border-radius: 8px; text-decoration: none; display: inline-block;" target="_blank" rel="noopener">LINEで相談</a>
+                    <p style="font-size: 0.875rem; color: #666; margin-top: 8px;">24時間受付</p>
+                </div>
+                
+                <div class="card" style="text-align: center;">
+                    <div style="font-size: 2rem; margin-bottom: 16px;">📧</div>
+                    <h3 style="font-weight: bold; margin-bottom: 8px;">メール</h3>
+                    <p style="color: #2196F3;">info@if-juku.net</p>
+                    <p style="font-size: 0.875rem; color: #666;">24時間受付</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer style="background: linear-gradient(45deg, #B67B03 0%, #DAAF08 45%, #FEE9A0 70%, #DAAF08 85%, #B67B03 90%, #B67B03 100%); color: white; padding: 40px 20px;">
+        <div style="text-align: center;">
+            <div style="margin-bottom: 24px;">
+                <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 16px;">if(Tech) - マイクラで学ぶ未来スキル</h3>
+                <p style="margin-bottom: 16px;">運営：if(塾) × なるテック</p>
+            </div>
+            
+            <div style="display: flex; justify-content: center; gap: 24px; margin-bottom: 24px; flex-wrap: wrap;">
+                <a href="https://www.instagram.com/if_juku_/" target="_blank" rel="noopener" style="color: white; text-decoration: none;">Instagram</a>
+                <a href="https://lin.ee/lGK9c4Nx" target="_blank" rel="noopener" style="color: white; text-decoration: none;">LINE</a>
+                <a href="https://www.youtube.com/@if-juku" target="_blank" rel="noopener" style="color: white; text-decoration: none;">YouTube</a>
+                <a href="https://if-juku.net/" target="_blank" rel="noopener" style="color: white; text-decoration: none;">公式サイト</a>
+            </div>
+            
+            <div style="font-size: 0.875rem; opacity: 0.8;">
+                <p>&copy; 2024 if(塾). All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ゲーム風通知システム
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.innerHTML = `
+                <div style="
+                    background: linear-gradient(45deg, var(--game-gold), #FFA000);
+                    color: #333;
+                    padding: 12px 20px;
+                    border-radius: 8px;
+                    margin-bottom: 10px;
+                    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+                    animation: slideIn 0.5s ease, fadeOut 0.5s ease 2.5s;
+                    font-weight: bold;
+                    border: 2px solid #FFD700;
+                ">
+                    ${message}
+                </div>
+            `;
+            document.getElementById('notification-system').appendChild(notification);
+            setTimeout(() => notification.remove(), 3000);
+        }
+
+        // パーティクル効果
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 2 + 's';
+            particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            document.getElementById('particles').appendChild(particle);
+            
+            setTimeout(() => particle.remove(), 6000);
+        }
+
+        // パーティクルを定期的に生成
+        setInterval(createParticle, 300);
+
+        // ゲーム風クリック可能要素
+        document.addEventListener('DOMContentLoaded', function() {
+            const gameClickables = document.querySelectorAll('.game-clickable');
+            gameClickables.forEach(element => {
+                element.style.cursor = 'pointer';
+                element.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                    this.style.filter = 'brightness(1.1)';
+                });
+                element.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                    this.style.filter = 'brightness(1)';
+                });
+            });
+        });
+
+        // レベルアップ風エフェクト
+        function levelUpEffect(element) {
+            element.style.animation = 'levelUp 0.8s ease';
+            setTimeout(() => {
+                element.style.animation = '';
+            }, 800);
+        }
+
+        // マウス追従エフェクト
+        document.addEventListener('mousemove', function(e) {
+            if (Math.random() < 0.02) { // 2%の確率でスパークル
+                const sparkle = document.createElement('div');
+                sparkle.style.cssText = `
+                    position: fixed;
+                    width: 4px;
+                    height: 4px;
+                    background: var(--game-gold);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 9999;
+                    left: ${e.clientX}px;
+                    top: ${e.clientY}px;
+                    animation: sparkle 1s ease-out;
+                `;
+                document.body.appendChild(sparkle);
+                setTimeout(() => sparkle.remove(), 1000);
+            }
+        });
+
+        // スクロール連動アニメーション
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'slideInUp 0.8s ease';
+                    if (entry.target.querySelector('.progress-fill')) {
+                        const progressBar = entry.target.querySelector('.progress-fill');
+                        const width = progressBar.style.width;
+                        progressBar.style.width = '0%';
+                        setTimeout(() => {
+                            progressBar.style.width = width;
+                        }, 300);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 追加のCSSアニメーション
+        const additionalStyles = document.createElement('style');
+        additionalStyles.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes fadeOut {
+                from { opacity: 1; }
+                to { opacity: 0; }
+            }
+            @keyframes levelUp {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.2); filter: brightness(1.5); }
+                100% { transform: scale(1); }
+            }
+            @keyframes sparkle {
+                0% { transform: scale(0) rotate(0deg); opacity: 1; }
+                100% { transform: scale(1) rotate(180deg); opacity: 0; }
+            }
+            @keyframes slideInUp {
+                from { transform: translateY(50px); opacity: 0; }
+                to { transform: translateY(0); opacity: 1; }
+            }
+            .game-clickable {
+                transition: all 0.3s ease;
+            }
+            .minecraft-block {
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            .minecraft-block:hover {
+                filter: brightness(1.2) drop-shadow(0 0 10px var(--game-gold));
+            }
+        `;
+        document.head.appendChild(additionalStyles);
+
+        // 初期通知
+        setTimeout(() => {
+            showNotification('🎮 ゲーム開始! ページを探索してXPを集めよう!');
+        }, 1000);
+    </script>
+</body>
+</html> 
