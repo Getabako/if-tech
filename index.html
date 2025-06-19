@@ -90,7 +90,12 @@
         
         .hero-section {
             min-height: 100vh;
-            background: linear-gradient(135deg, var(--emerald) 0%, var(--green) 100%);
+            background: 
+                linear-gradient(135deg, rgba(0, 200, 83, 0.7) 0%, rgba(76, 175, 80, 0.7) 100%),
+                url('https://if-juku.net/wp-content/uploads/2025/06/tech1.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -333,9 +338,6 @@
     <section class="hero-section">
         <div class="text-center text-white px-8" style="position: relative; z-index: 10;">
             <div class="mb-8">
-                <img src="https://if-juku.net/wp-content/uploads/2025/06/tech1.png" 
-                     alt="カラフルなマインクラフトの世界で楽しく学ぶ子どもたちの様子・横長" 
-                     class="rounded-lg shadow-lg mx-auto mb-6" style="max-width: 100%; height: auto;">
                 <div class="flex justify-center mb-6">
                     <div class="minecraft-block grass-block float game-clickable" onclick="showNotification('グラスブロック GET! +10 XP')"></div>
                     <div class="minecraft-block diamond-block float game-clickable" onclick="showNotification('ダイヤモンド発見! +50 XP')" style="animation-delay: 0.5s"></div>
@@ -351,9 +353,6 @@
                     <div class="progress-fill" style="width: 85%;" data-level="冒険レベル 85%"></div>
                 </div>
             </div>
-            <img src="https://if-juku.net/wp-content/uploads/2025/06/tech2.png" 
-                 alt="子どもたちがゲーム感覚でプログラミングを学んでいる楽しい授業風景・横長" 
-                 class="rounded-lg shadow-lg mx-auto mb-6" style="max-width: 100%; height: auto;">
             <p class="text-xl mb-8">さあ、ひらめきと成長を手にする新しい冒険に出かけよう！<br>
             マインクラフトの世界で夢中になって遊ぶうちに、未来を生き抜く力が身につく！</p>
             <p class="text-lg mb-12">遊びの延長で、いつの間にか"なりたい自分"になれる場所！</p>
