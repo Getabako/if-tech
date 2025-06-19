@@ -606,18 +606,30 @@
     <!-- 教室の理念・特徴 -->
     <section class="section bg-white">
         <div class="text-center mb-12">
+            <div class="game-badge mb-4">💖 PHILOSOPHY</div>
             <h2 class="text-gray-800 font-bold">教室の理念・大切にしていること</h2>
         </div>
         
-        <div class="card text-center mb-12">
+        <img src="https://via.placeholder.com/800x400/FF6B6B/ffffff?text=やってみたい！を応援" 
+             alt="子どもたちが自分のアイデアを実現して喜んでいる瞬間・横長" 
+             class="rounded-lg shadow-lg mx-auto mb-8" style="max-width: 100%; height: auto;">
+        
+        <div class="card text-center mb-12 game-clickable" onclick="showNotification('💖 理念を確認! 心が温まる +30 XP')">
             <h3 class="text-2xl font-bold mb-6">「やってみたい！」を思いきり応援してくれる場所</h3>
             <p class="text-xl mb-6">好きなことに夢中になってOK！ うまくいかなくても大丈夫！</p>
             <p class="mb-6">自分のアイデアで新しいものをつくったり、誰かと力を合わせて作品を完成させたり、そんな体験を通じて"本当の自分"を見つけていく教室です。</p>
             <p class="text-lg text-green-600 font-bold">君の"好き"が、未来をつくる力になる――それがこの教室の大切にしていることです。</p>
+            <div class="progress-bar mt-6">
+                <div class="progress-fill" style="width: 100%;" data-label="愛情度 MAX!"></div>
+            </div>
         </div>
         
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div class="card">
+            <div class="card game-clickable" onclick="showNotification('🎯 対象者情報を確認! +20 XP')">
+                <img src="https://via.placeholder.com/400x300/9C27B0/ffffff?text=様々な個性の子どもたち" 
+                     alt="多様な個性を持った子どもたちが楽しく学習している様子・横長" 
+                     class="rounded-lg shadow-lg w-full mb-6" style="height: 200px; object-fit: cover;">
+                <div class="game-badge mb-4">🌟 TARGET AUDIENCE</div>
                 <h3 class="text-2xl font-bold mb-6">こんな子におすすめ</h3>
                 <p class="mb-4">ゲームやYouTubeが好き。だけど、学校はちょっと苦手だったり、人と話すのに勇気がいるときもある。そんなキミにこそ来てほしい場所です。</p>
                 <ul class="space-y-2 text-gray-700">
@@ -628,12 +640,22 @@
                     <li>✓ 「ITに強くなりたい」</li>
                 </ul>
                 <p class="mt-4 font-bold text-green-600">みんなちがって、みんないい。どんなキミも待ってます。</p>
+                <div class="progress-bar mt-4">
+                    <div class="progress-fill" style="width: 100%;"></div>
+                </div>
             </div>
             
-            <div class="card">
+            <div class="card game-clickable" onclick="showNotification('🏆 選ばれる理由を確認! +20 XP')">
+                <img src="https://via.placeholder.com/400x300/FF9800/ffffff?text=発表会で輝く子どもたち" 
+                     alt="発表会で自信を持って作品を紹介する子どもたちの様子・横長" 
+                     class="rounded-lg shadow-lg w-full mb-6" style="height: 200px; object-fit: cover;">
+                <div class="game-badge mb-4">🏆 WHY CHOOSE US</div>
                 <h3 class="text-2xl font-bold mb-6">選ばれる理由</h3>
                 <p class="mb-4">この教室では、毎月、自分の作品やアイデアをみんなの前で発表する機会があります。「伝える」ことを当たり前にしていくことで、自分の思いやこだわりをしっかり言葉にできるようになり、それが人の心を動かし、応援してくれる"味方"を増やしていきます。</p>
                 <p>発表を重ねるごとに「もっとすごいものを作りたい！」という気持ちが芽生え、作品の規模やクオリティもどんどんレベルアップ。そんなふうにして、"好きなこと"が"夢"になり、やがて"実現"するまでを、楽しみながら自然に積み重ねていける――それがこの教室の最大の魅力です。</p>
+                <div class="progress-bar mt-4">
+                    <div class="progress-fill" style="width: 98%;"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -641,38 +663,57 @@
     <!-- 学べるスキル（詳細） -->
     <section class="section" style="background-color: #F5F5F5;">
         <div class="text-center mb-12">
+            <div class="game-badge mb-4">🎯 SKILLS UNLOCKED</div>
             <h2 class="text-gray-800 font-bold">学べるスキル</h2>
             <p class="text-xl text-gray-600">マイクラで身につく未来の力</p>
         </div>
         
+        <img src="https://via.placeholder.com/800x400/4ECDC4/ffffff?text=スキル習得プロセス" 
+             alt="段階的にスキルを身につけていく学習プロセスの図解・横長" 
+             class="rounded-lg shadow-lg mx-auto mb-12" style="max-width: 100%; height: auto;">
+        
         <!-- 自分の好きと得意に気づく力 -->
-        <div class="card mb-12">
+        <div class="card mb-12 game-clickable" onclick="showNotification('💫 自己発見スキル確認! +35 XP')">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div>
+                    <div class="game-badge mb-4">💫 SELF-DISCOVERY</div>
                     <h3 class="text-2xl font-bold mb-6">自分の"好き"と"得意"に気づく力</h3>
                     <p class="mb-4">たとえば、マインクラフトで「コマンドって面白い！」と夢中になっていた子が、自分で仕組みをつくることにハマり、やがて本格的なゲームづくりに挑戦。</p>
                     <p class="mb-4">また、好きなYouTuberの動画を毎日見ているうちに、「自分もやってみたい！」という気持ちが芽生えて、自分で企画を考え、編集ソフトを使って動画を作り始める子もいます。</p>
                     <p class="text-green-600 font-bold">最初はただ"好き"だったことが、いつの間にか"得意"になっていく。そんな「気づき」のきっかけがたくさんあるのがこの教室です。</p>
                 </div>
                 <div>
+                    <img src="https://via.placeholder.com/400x300/FF6B6B/ffffff?text=好きから得意への成長" 
+                         alt="子どもが興味から始めて得意分野を見つけていく成長過程・横長" 
+                         class="rounded-lg shadow-lg w-full mb-4" style="height: 200px; object-fit: cover;">
                     <div class="bg-orange-100 p-6 rounded-lg">
                         <h4 class="font-bold mb-2">好きから得意への変化</h4>
                         <p class="text-sm">子どもが興味を持って学習に取り組む過程を大切にします</p>
+                    </div>
+                    <div class="progress-bar mt-4">
+                        <div class="progress-fill" style="width: 88%;"></div>
                     </div>
                 </div>
             </div>
         </div>
         
         <!-- プレゼンテーション力 -->
-        <div class="card mb-12">
+        <div class="card mb-12 game-clickable" onclick="showNotification('🎤 プレゼンスキル確認! +35 XP')">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div>
+                    <img src="https://via.placeholder.com/400x300/4CAF50/ffffff?text=自信を持って発表" 
+                         alt="子どもが自信を持ってプレゼンテーションをしている様子・横長" 
+                         class="rounded-lg shadow-lg w-full mb-4" style="height: 200px; object-fit: cover;">
                     <div class="bg-green-100 p-6 rounded-lg">
                         <h4 class="font-bold mb-2">プレゼンテーション</h4>
                         <p class="text-sm">子どもが自信を持って発表している様子</p>
                     </div>
+                    <div class="progress-bar mt-4">
+                        <div class="progress-fill" style="width: 94%;"></div>
+                    </div>
                 </div>
                 <div>
+                    <div class="game-badge mb-4">🎤 PRESENTATION MASTER</div>
                     <h3 class="text-2xl font-bold mb-6">社会に発信するプレゼンテーション力</h3>
                     <p class="mb-4">この教室では、普段から自分のアイデアや作品を発表する機会がたくさんあります。どんな想いでつくったのか、どこを工夫したのか――そんな「伝える力」を育てることを大切にしています。</p>
                     <p class="mb-4">伝えることで、共感してくれる人や応援してくれる人が現れ、思い描いたことが実現へと近づいていきます。</p>
@@ -683,34 +724,76 @@
         
         <!-- マイクラで学べる具体的スキル -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="card text-center">
+            <div class="card text-center game-clickable" onclick="showNotification('⚔️ コマンドスキル習得! +25 XP')">
+                <img src="https://via.placeholder.com/300x200/FF9800/ffffff?text=コマンド操作" 
+                     alt="マインクラフトのコマンドを使ってゲームを操作している様子・横長" 
+                     class="rounded-lg shadow-lg w-full mb-4" style="height: 150px; object-fit: cover;">
+                <div class="game-badge mb-4">⚔️ COMMAND MASTER</div>
                 <h4 class="text-xl font-bold mb-4">コマンドでゲームを操ろう</h4>
                 <p>マイクラに隠された「コマンド機能」を使えば、天気を変えたり、テレポートしたり、ゲームのルールそのものを操作することができます。プログラミングの基礎に触れながら、自分のアイデアを思い通りに実現する力が身につきます。</p>
+                <div class="progress-bar mt-4">
+                    <div class="progress-fill" style="width: 87%;"></div>
+                </div>
             </div>
             
-            <div class="card text-center">
+            <div class="card text-center game-clickable" onclick="showNotification('⚡ レッドストーン回路マスター! +25 XP')">
+                <img src="https://via.placeholder.com/300x200/E91E63/ffffff?text=レッドストーン回路" 
+                     alt="レッドストーンを使って複雑な回路を作っている様子・横長" 
+                     class="rounded-lg shadow-lg w-full mb-4" style="height: 150px; object-fit: cover;">
+                <div class="game-badge mb-4">⚡ REDSTONE ENGINEER</div>
                 <h4 class="text-xl font-bold mb-4">レッドストーンで仕組みを考えよう</h4>
                 <p>マイクラの"レッドストーン"は、まるで電気のように信号を流して動かすアイテムです。ドアが自動で開く仕組みや、トラップのようなしかけも自分でつくれます。「どう動かしたいか」「そのためにどんな順番が必要か」を考えるうちに、自然と論理的思考力が育っていきます。</p>
+                <div class="progress-bar mt-4">
+                    <div class="progress-fill" style="width: 92%;"></div>
+                </div>
             </div>
             
-            <div class="card text-center">
+            <div class="card text-center game-clickable" onclick="showNotification('🏗️ 世界創造スキル習得! +25 XP')">
+                <img src="https://via.placeholder.com/300x200/9C27B0/ffffff?text=オリジナル世界" 
+                     alt="独創的で美しいマインクラフトの世界を創造している様子・横長" 
+                     class="rounded-lg shadow-lg w-full mb-4" style="height: 150px; object-fit: cover;">
+                <div class="game-badge mb-4">🏗️ WORLD CREATOR</div>
                 <h4 class="text-xl font-bold mb-4">キミだけの世界をつくろう</h4>
                 <p>「こんな世界があったらいいな」をカタチにできるのが、マインクラフトのすごいところ。現実では難しい理想の街や空想の世界も、思いのままに作れます。「空を飛べる家」「地下迷宮」「空中都市」――キミの想像がそのまま創造につながります。</p>
+                <div class="progress-bar mt-4">
+                    <div class="progress-fill" style="width: 95%;"></div>
+                </div>
             </div>
             
-            <div class="card text-center">
+            <div class="card text-center game-clickable" onclick="showNotification('🎨 3Dモデリングスキル習得! +25 XP')">
+                <img src="https://via.placeholder.com/300x200/2196F3/ffffff?text=3D建築スキル" 
+                     alt="3Dブロックを使って立体的な建造物を作っている様子・横長" 
+                     class="rounded-lg shadow-lg w-full mb-4" style="height: 150px; object-fit: cover;">
+                <div class="game-badge mb-4">🎨 3D ARTIST</div>
                 <h4 class="text-xl font-bold mb-4">3Dモデリングの基礎が学べる</h4>
                 <p>マイクラの世界はすべて3Dの立体ブロックでできています。ブロックを積み重ねて建物や構造物を作ることは、実は3Dモデリングの基礎そのもの。自分の頭の中にあるイメージを空間に表現する力や、構造を考えて配置する力が自然と育まれます。</p>
+                <div class="progress-bar mt-4">
+                    <div class="progress-fill" style="width: 84%;"></div>
+                </div>
             </div>
             
-            <div class="card text-center">
+            <div class="card text-center game-clickable" onclick="showNotification('🎬 動画制作スキル習得! +25 XP')">
+                <img src="https://via.placeholder.com/300x200/FF5722/ffffff?text=動画制作" 
+                     alt="マインクラフトの作品を動画編集で魅力的に紹介している様子・横長" 
+                     class="rounded-lg shadow-lg w-full mb-4" style="height: 150px; object-fit: cover;">
+                <div class="game-badge mb-4">🎬 VIDEO CREATOR</div>
                 <h4 class="text-xl font-bold mb-4">作品を動画にしよう</h4>
                 <p>マインクラフトで作った世界を「もっと見てほしい！」と思ったら、動画にして発信することもできます。ふだんYouTubeで動画を見る子どもたちにとって、自分でも動画を作ることはとても身近な挑戦。編集やナレーションを工夫することで、伝えたいことをどう届けるかを考える力も育ちます。</p>
+                <div class="progress-bar mt-4">
+                    <div class="progress-fill" style="width: 78%;"></div>
+                </div>
             </div>
             
-            <div class="card text-center">
+            <div class="card text-center game-clickable" onclick="showNotification('🔧 データパック開発スキル習得! +25 XP')">
+                <img src="https://via.placeholder.com/300x200/607D8B/ffffff?text=データパック開発" 
+                     alt="複雑なコマンドを組み合わせてシステムを構築している様子・横長" 
+                     class="rounded-lg shadow-lg w-full mb-4" style="height: 150px; object-fit: cover;">
+                <div class="game-badge mb-4">🔧 SYSTEM DEVELOPER</div>
                 <h4 class="text-xl font-bold mb-4">コマンドを組み合わせて仕組みをつくろう</h4>
                 <p>Scratchのようにブロックを組み合わせる感覚で、マイクラでは「コマンド」を組み合わせて複雑な動きを作ることができます。複数のコマンドを順番に並べたり条件を加えたりすることで、オリジナルのルールやシステムを作れる"データパック"が完成します。</p>
+                <div class="progress-bar mt-4">
+                    <div class="progress-fill" style="width: 90%;"></div>
+                </div>
             </div>
         </div>
         
@@ -725,26 +808,49 @@
     <!-- 授業形式・サポート体制 -->
     <section class="section bg-white">
         <div class="text-center mb-12">
+            <div class="game-badge mb-4">💻 LEARNING SYSTEM</div>
             <h2 class="text-gray-800 font-bold">授業形式・サポート体制</h2>
             <p class="text-xl text-gray-600">安心して学べる環境</p>
         </div>
         
+        <img src="https://via.placeholder.com/800x400/2196F3/ffffff?text=オンライン授業環境" 
+             alt="オンライン授業でサポートを受けながら学習する子どもたちの様子・横長" 
+             class="rounded-lg shadow-lg mx-auto mb-12" style="max-width: 100%; height: auto;">
+        
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
-            <div class="card">
+            <div class="card game-clickable" onclick="showNotification('💻 オンライン授業体験! +30 XP')">
+                <img src="https://via.placeholder.com/400x300/4CAF50/ffffff?text=全国どこからでも参加" 
+                     alt="日本全国から参加している子どもたちがオンラインで繋がっている様子・横長" 
+                     class="rounded-lg shadow-lg w-full mb-6" style="height: 200px; object-fit: cover;">
+                <div class="game-badge mb-4">🌍 GLOBAL ACCESS</div>
                 <h3 class="text-2xl font-bold mb-4">完全オンライン授業</h3>
                 <p class="mb-4">送迎なし・移動なし！ どこに住んでいても、全国どこからでも同じレベルの授業を受けられます。遠方の子も、スケジュールに合わせて気軽に参加できるのが魅力。</p>
                 <p>マイクラとZoomを併用して、画面越しでもしっかりサポート。自分の好きな場所から安心して取り組めます。</p>
+                <div class="progress-bar mt-4">
+                    <div class="progress-fill" style="width: 96%;"></div>
+                </div>
             </div>
             
-            <div class="card">
+            <div class="card game-clickable" onclick="showNotification('🤝 サポート体制確認! +30 XP')">
+                <img src="https://via.placeholder.com/400x300/FF9800/ffffff?text=リアルタイムサポート" 
+                     alt="講師が画面共有で丁寧に指導しているリアルタイム授業の様子・横長" 
+                     class="rounded-lg shadow-lg w-full mb-6" style="height: 200px; object-fit: cover;">
+                <div class="game-badge mb-4">🤝 INSTANT SUPPORT</div>
                 <h3 class="text-2xl font-bold mb-4">どうやるの？ すぐ教えるよ！</h3>
                 <p class="mb-4">リアルタイムの授業だから、わからないことがあってもすぐ質問できる！ AIや先生が丁寧に教えてくれるので、わからないまま置いていかれることはありません。</p>
                 <p>友達と一緒に取り組める安心感もあって、つまづかずに楽しく続けられます。</p>
+                <div class="progress-bar mt-4">
+                    <div class="progress-fill" style="width: 94%;"></div>
+                </div>
             </div>
         </div>
         
         <!-- 発表会について -->
-        <div class="card mb-12">
+        <div class="card mb-12 game-clickable" onclick="showNotification('🎤 発表会情報をチェック! +35 XP')">
+            <img src="https://via.placeholder.com/600x300/9C27B0/ffffff?text=毎月の発表会" 
+                 alt="毎月開催される発表会で子どもたちが作品を紹介している様子・横長" 
+                 class="rounded-lg shadow-lg w-full mb-8" style="height: 200px; object-fit: cover;">
+            <div class="game-badge mb-4">🎤 PRESENTATION SHOW</div>
             <h3 class="text-2xl font-bold text-center mb-8">毎月の発表会</h3>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
@@ -755,6 +861,9 @@
                 </div>
                 
                 <div>
+                    <img src="https://via.placeholder.com/400x250/FF6B6B/ffffff?text=作品発表例" 
+                         alt="子どもたちの創造的な作品発表の事例・横長" 
+                         class="rounded-lg shadow-lg w-full mb-4" style="height: 150px; object-fit: cover;">
                     <h4 class="text-xl font-bold mb-4">発表内容例</h4>
                     <ul class="space-y-3">
                         <li class="bg-green-50 p-3 rounded">「電車のまち by タクト（小4）」<br>好きな電車を再現したワールドに、秘密基地や発車メロディーまで作りこんだ</li>
@@ -767,6 +876,9 @@
             <div class="text-center mt-8 bg-yellow-50 p-6 rounded-lg">
                 <h5 class="font-bold text-lg mb-2">発表会日程</h5>
                 <p>毎月最終木曜日の17時から開催！家族も一緒に見学OK。Zoomを使ってオンラインで参加できるから、遠方の子も気軽に参加できます。</p>
+            </div>
+            <div class="progress-bar mt-6">
+                <div class="progress-fill" style="width: 100%;" data-label="発表会満足度 MAX!"></div>
             </div>
         </div>
         
@@ -781,31 +893,57 @@
     <!-- 安全・安心サポート -->
     <section class="section" style="background-color: #E3F2FD;">
         <div class="text-center mb-12">
+            <div class="game-badge mb-4">🛡️ SAFETY FIRST</div>
             <h2 class="text-gray-800 font-bold">安全＆安心サポート</h2>
             <p class="text-xl text-blue-800">保護者も安心の仕組み</p>
         </div>
         
-        <div class="card mb-12">
+        <img src="https://via.placeholder.com/800x400/2196F3/ffffff?text=安全・安心サポート体制" 
+             alt="AIと専門スタッフによる安全で安心な学習環境・横長" 
+             class="rounded-lg shadow-lg mx-auto mb-12" style="max-width: 100%; height: auto;">
+        
+        <div class="card mb-12 game-clickable" onclick="showNotification('🤖 Kaikaシステム確認! +40 XP')">
             <div class="text-center mb-8">
+                <img src="https://via.placeholder.com/500x300/4CAF50/ffffff?text=AIアセスメントシステム" 
+                     alt="AIアセスメントシステムKaikaが子どもの成長を分析している様子・横長" 
+                     class="rounded-lg shadow-lg mx-auto mb-6" style="max-width: 100%; height: auto;">
                 <div class="bg-blue-100 p-6 rounded-lg mx-auto mb-6 max-w-md">
                     <h4 class="font-bold mb-2">AIアセスメントシステム「Kaika」</h4>
                     <p class="text-sm">データ分析によるサポート体制</p>
                 </div>
             </div>
+            <div class="game-badge mb-4">🤖 AI ASSESSMENT</div>
             <h3 class="text-2xl font-bold text-center mb-6">AIアセスメントシステム「Kaika」</h3>
             <p class="text-center mb-6">この教室では、AIアセスメントシステム「Kaika」を導入し、毎回の授業で「やること」や「進捗状況」をアンケートで取得。さらに、マインクラフトの行動ログも記録・分析。</p>
             <p class="text-center text-blue-600 font-bold">すべての子どもが「得意」や「好き」を見つけ、やりたいことで自分の人生を切り拓けるよう、専門家の監修のもと、システムとデータに基づいた手厚いサポート体制を整えています。</p>
+            <div class="progress-bar mt-6">
+                <div class="progress-fill" style="width: 99%;" data-label="安全性 99%"></div>
+            </div>
         </div>
         
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div class="card">
+            <div class="card game-clickable" onclick="showNotification('💬 安全チャット環境確認! +25 XP')">
+                <img src="https://via.placeholder.com/400x300/FF9800/ffffff?text=安全なDiscord環境" 
+                     alt="安全に管理されたDiscordチャット環境での学習コミュニティ・横長" 
+                     class="rounded-lg shadow-lg w-full mb-6" style="height: 200px; object-fit: cover;">
+                <div class="game-badge mb-4">💬 SAFE CHAT</div>
                 <h3 class="text-2xl font-bold mb-4">安全なチャット環境</h3>
                 <p>Discordサーバーを利用して、安心して相談や質問ができる環境を整えています。仲間や講師とのコミュニケーションがスムーズで、困ったときもすぐにサポートが届きます。</p>
+                <div class="progress-bar mt-4">
+                    <div class="progress-fill" style="width: 97%;"></div>
+                </div>
             </div>
             
-            <div class="card">
+            <div class="card game-clickable" onclick="showNotification('📱 保護者アプリ確認! +25 XP')">
+                <img src="https://via.placeholder.com/400x300/E91E63/ffffff?text=保護者専用アプリ" 
+                     alt="保護者が専用アプリで子どもの学習状況を確認している様子・横長" 
+                     class="rounded-lg shadow-lg w-full mb-6" style="height: 200px; object-fit: cover;">
+                <div class="game-badge mb-4">📱 PARENT APP</div>
                 <h3 class="text-2xl font-bold mb-4">保護者専用アプリ「Kaika」</h3>
                 <p>お子さまの活動や成長の様子をリアルタイムでチェック可能。チャット機能で講師と直接やり取りできるから、保護者の方も安心して見守ることができます。</p>
+                <div class="progress-bar mt-4">
+                    <div class="progress-fill" style="width: 95%;"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -903,38 +1041,67 @@
     <!-- よくある質問 -->
     <section class="section" style="background-color: #F5F5F5;">
         <div class="text-center mb-12">
+            <div class="game-badge mb-4">❓ FAQ QUEST</div>
             <h2 class="text-gray-800 font-bold">よくある質問</h2>
         </div>
         
+        <img src="https://via.placeholder.com/700x350/FF9800/ffffff?text=よくある質問Q&A" 
+             alt="よくある質問とその回答を分かりやすく表示したインフォグラフィック・横長" 
+             class="rounded-lg shadow-lg mx-auto mb-12" style="max-width: 100%; height: auto;">
+        
         <div class="max-w-4xl mx-auto space-y-6">
-            <div class="card">
+            <div class="card game-clickable" onclick="showNotification('💻 PC初心者サポート確認! +15 XP')">
+                <div class="game-badge mb-2">👶 BEGINNER FRIENDLY</div>
                 <h4 class="text-xl font-bold mb-4">パソコン未経験でも大丈夫ですか？</h4>
                 <p>もちろん大丈夫です！最初はマウスの使い方から丁寧にサポートします。講師が画面共有でリアルタイムに操作をお手伝いするので、安心してご参加ください。</p>
+                <div class="progress-bar mt-4">
+                    <div class="progress-fill" style="width: 100%;"></div>
+                </div>
             </div>
             
-            <div class="card">
+            <div class="card game-clickable" onclick="showNotification('👥 少人数制の魅力確認! +15 XP')">
+                <div class="game-badge mb-2">👥 SMALL CLASS</div>
                 <h4 class="text-xl font-bold mb-4">何名クラスですか？</h4>
                 <p>少人数制で、先生1人に対して生徒4〜6名程度です。一人ひとりにしっかりと目が届く環境で、質問もしやすい人数設定にしています。</p>
+                <div class="progress-bar mt-4">
+                    <div class="progress-fill" style="width: 96%;"></div>
+                </div>
             </div>
             
-            <div class="card">
+            <div class="card game-clickable" onclick="showNotification('⏰ スケジュール情報確認! +15 XP')">
+                <div class="game-badge mb-2">⏰ FLEXIBLE SCHEDULE</div>
                 <h4 class="text-xl font-bold mb-4">曜日・時間はどうなっていますか？</h4>
                 <p>毎週木曜日の17:00〜18:00を基本としていますが、お子さまのスケジュールに合わせて調整可能です。詳しくは体験時にご相談ください。</p>
+                <div class="progress-bar mt-4">
+                    <div class="progress-fill" style="width: 94%;"></div>
+                </div>
             </div>
             
-            <div class="card">
+            <div class="card game-clickable" onclick="showNotification('💰 料金システム確認! +15 XP')">
+                <div class="game-badge mb-2">💰 PRICING INFO</div>
                 <h4 class="text-xl font-bold mb-4">料金はどのくらいですか？</h4>
                 <p>月額料金や詳しい料金体系については、無料体験時に詳しくご説明いたします。まずはお気軽に体験からお試しください。</p>
+                <div class="progress-bar mt-4">
+                    <div class="progress-fill" style="width: 92%;"></div>
+                </div>
             </div>
             
-            <div class="card">
+            <div class="card game-clickable" onclick="showNotification('🎒 準備物チェック! +15 XP')">
+                <div class="game-badge mb-2">🎒 WHAT YOU NEED</div>
                 <h4 class="text-xl font-bold mb-4">必要な持ち物はありますか？</h4>
                 <p>パソコン（Windows・Mac問わず）とインターネット環境があれば参加可能です。マインクラフトのライセンスをお持ちでない場合は、体験時にサポート方法をご案内します。</p>
+                <div class="progress-bar mt-4">
+                    <div class="progress-fill" style="width: 98%;"></div>
+                </div>
             </div>
             
-            <div class="card">
+            <div class="card game-clickable" onclick="showNotification('📝 体験会流れ確認! +15 XP')">
+                <div class="game-badge mb-2">📝 TRIAL FLOW</div>
                 <h4 class="text-xl font-bold mb-4">体験会の流れを教えてください</h4>
                 <p>①Zoomでの簡単な挨拶・説明（10分）②マインクラフトの基本操作体験（20分）③コマンド体験（20分）④質疑応答・今後のご案内（10分）という流れで、計60分程度を予定しています。</p>
+                <div class="progress-bar mt-4">
+                    <div class="progress-fill" style="width: 100%;"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -1008,27 +1175,54 @@
     <!-- お問い合わせ -->
     <section class="section" style="background-color: #F5F5F5;">
         <div style="text-align: center;">
+            <div class="game-badge mb-4">📞 CONTACT MISSION</div>
             <h2 style="color: #333; font-weight: bold; margin-bottom: 32px; font-size: 2.5rem;">お問い合わせ</h2>
+            
+            <img src="https://via.placeholder.com/600x300/4CAF50/ffffff?text=お問い合わせ方法" 
+                 alt="電話・LINE・メールでのお問い合わせ方法の案内・横長" 
+                 class="rounded-lg shadow-lg mx-auto mb-12" style="max-width: 100%; height: auto;">
+            
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 32px;">
-                <div class="card" style="text-align: center;">
+                <div class="card game-clickable" onclick="showNotification('📞 電話お問い合わせ情報確認! +20 XP')" style="text-align: center;">
+                    <img src="https://via.placeholder.com/200x150/2196F3/ffffff?text=電話サポート" 
+                         alt="電話でのサポート対応の様子・横長" 
+                         class="rounded-lg shadow-lg w-full mb-4" style="height: 120px; object-fit: cover;">
+                    <div class="game-badge mb-2">📞 PHONE SUPPORT</div>
                     <div style="font-size: 2rem; margin-bottom: 16px;">📞</div>
                     <h3 style="font-weight: bold; margin-bottom: 8px;">お電話</h3>
                     <p style="color: #2196F3; font-weight: bold;">018-838-6462</p>
                     <p style="font-size: 0.875rem; color: #666;">平日 10:00〜18:00</p>
+                    <div class="progress-bar mt-4">
+                        <div class="progress-fill" style="width: 90%;"></div>
+                    </div>
                 </div>
                 
-                <div class="card" style="text-align: center;">
+                <div class="card game-clickable" onclick="showNotification('💬 LINE友達追加! +20 XP')" style="text-align: center;">
+                    <img src="https://via.placeholder.com/200x150/4CAF50/ffffff?text=LINEサポート" 
+                         alt="LINEでの気軽な相談の様子・横長" 
+                         class="rounded-lg shadow-lg w-full mb-4" style="height: 120px; object-fit: cover;">
+                    <div class="game-badge mb-2">💬 LINE SUPPORT</div>
                     <div style="font-size: 2rem; margin-bottom: 16px;">💬</div>
                     <h3 style="font-weight: bold; margin-bottom: 8px;">LINE</h3>
                     <a href="https://lin.ee/lGK9c4Nx" style="background: #4CAF50; color: white; padding: 8px 24px; border-radius: 8px; text-decoration: none; display: inline-block;" target="_blank" rel="noopener">LINEで相談</a>
                     <p style="font-size: 0.875rem; color: #666; margin-top: 8px;">24時間受付</p>
+                    <div class="progress-bar mt-4">
+                        <div class="progress-fill" style="width: 95%;"></div>
+                    </div>
                 </div>
                 
-                <div class="card" style="text-align: center;">
+                <div class="card game-clickable" onclick="showNotification('📧 メールお問い合わせ確認! +20 XP')" style="text-align: center;">
+                    <img src="https://via.placeholder.com/200x150/FF9800/ffffff?text=メールサポート" 
+                         alt="メールでの詳細な相談対応の様子・横長" 
+                         class="rounded-lg shadow-lg w-full mb-4" style="height: 120px; object-fit: cover;">
+                    <div class="game-badge mb-2">📧 EMAIL SUPPORT</div>
                     <div style="font-size: 2rem; margin-bottom: 16px;">📧</div>
                     <h3 style="font-weight: bold; margin-bottom: 8px;">メール</h3>
                     <p style="color: #2196F3;">info@if-juku.net</p>
                     <p style="font-size: 0.875rem; color: #666;">24時間受付</p>
+                    <div class="progress-bar mt-4">
+                        <div class="progress-fill" style="width: 88%;"></div>
+                    </div>
                 </div>
             </div>
         </div>
