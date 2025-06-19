@@ -27,4 +27,4 @@ yarn-error.log*
 
 # Build files (if using build tools in future)
 dist/
-build/ 
+build/ *.png
