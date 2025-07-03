@@ -351,12 +351,13 @@
         .progress-fill::after {
             content: attr(data-label);
             position: absolute;
-            right: 10px;
+            left: 50%;
             top: 50%;
-            transform: translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
             color: white;
             font-weight: bold;
             text-shadow: 0 0 5px rgba(0,0,0,0.5);
+            white-space: nowrap;
         }
         
         @keyframes progress-shine {
