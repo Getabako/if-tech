@@ -4,7 +4,7 @@ const Pricing: React.FC = () => {
   return (
     <section className="section" style={{ 
       position: 'relative', 
-      background: 'url(/images/tech30.png) center/cover no-repeat', 
+      background: 'linear-gradient(135deg, rgba(255, 152, 0, 0.3), rgba(255, 193, 7, 0.3), rgba(76, 175, 80, 0.3))', 
       minHeight: '800px' 
     }}>
       {/* 背景マスク */}

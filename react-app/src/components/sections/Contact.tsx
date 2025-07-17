@@ -6,7 +6,7 @@ const Contact: React.FC = () => {
       {/* 無料体験申込 */}
       <section id="contact" className="section" style={{ 
         position: 'relative', 
-        background: 'url(/images/tech35.png) center/cover no-repeat', 
+        background: 'linear-gradient(135deg, rgba(33, 150, 243, 0.3), rgba(156, 39, 176, 0.3), rgba(233, 30, 99, 0.3))', 
         minHeight: '800px' 
       }}>
         <div style={{ 
@@ -146,7 +146,7 @@ const Contact: React.FC = () => {
       {/* お問い合わせ */}
       <section id="contact-section" className="section" style={{ 
         position: 'relative', 
-        background: 'url(/images/tech37.png) center/cover no-repeat', 
+        background: 'linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(33, 150, 243, 0.3), rgba(156, 39, 176, 0.3))', 
         minHeight: '800px' 
       }}>
         <div style={{ 

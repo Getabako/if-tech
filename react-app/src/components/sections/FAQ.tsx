@@ -62,7 +62,7 @@ const FAQ: React.FC = () => {
   return (
     <section className="section" style={{ 
       position: 'relative', 
-      background: 'url(/images/tech34.png) center/cover no-repeat', 
+      background: 'linear-gradient(135deg, rgba(156, 39, 176, 0.3), rgba(233, 30, 99, 0.3), rgba(255, 152, 0, 0.3))', 
       minHeight: '800px' 
     }}>
       <div style={{ 

@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
       className="hero-section" 
       style={{
         background: showBackground 
-          ? 'url(/images/tech1.png)'
+          ? 'linear-gradient(135deg, #0f0f1e, #1a1a2e, #16213e)'
           : '#ffffff',
         backgroundSize: 'cover',
         backgroundPosition: 'center',

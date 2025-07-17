@@ -4,7 +4,7 @@ const WhyIfTech: React.FC = () => {
   return (
     <section className="section" style={{ 
       position: 'relative', 
-      background: 'url(/images/lesson2.jpg) center/cover no-repeat', 
+      background: 'linear-gradient(135deg, rgba(255, 193, 7, 0.3), rgba(0, 200, 83, 0.3), rgba(233, 30, 99, 0.3))', 
       minHeight: '800px' 
     }}>
       {/* 背景マスク */}
@@ -37,11 +37,21 @@ const WhyIfTech: React.FC = () => {
             boxShadow: '0 8px 25px rgba(0,0,0,0.3), inset 0 2px 10px rgba(255,255,255,0.2), inset 0 -2px 10px rgba(0,0,0,0.2)',
             textAlign: 'center'
           }}>
-            <img 
-              src="/images/tech7.png" 
-              alt="創造性" 
-              style={{ width: '100px', height: '100px', objectFit: 'cover', borderRadius: '20px', margin: '0 auto 20px' }} 
-            />
+            <div 
+              style={{ 
+                width: '100px', 
+                height: '100px', 
+                background: 'linear-gradient(135deg, var(--game-yellow), var(--game-orange))',
+                borderRadius: '20px', 
+                margin: '0 auto 20px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '3rem'
+              }} 
+            >
+              🎨
+            </div>
             <h4 style={{ color: 'var(--game-yellow)', fontSize: '1.2rem', marginBottom: '10px' }}>
               創造性
             </h4>
@@ -65,11 +75,21 @@ const WhyIfTech: React.FC = () => {
             boxShadow: '0 8px 25px rgba(0,0,0,0.3), inset 0 2px 10px rgba(255,255,255,0.2), inset 0 -2px 10px rgba(0,0,0,0.2)',
             textAlign: 'center'
           }}>
-            <img 
-              src="/images/tech8.png" 
-              alt="楽しさ" 
-              style={{ width: '100px', height: '100px', objectFit: 'cover', borderRadius: '20px', margin: '0 auto 20px' }} 
-            />
+            <div 
+              style={{ 
+                width: '100px', 
+                height: '100px', 
+                background: 'linear-gradient(135deg, var(--game-emerald), var(--game-green))',
+                borderRadius: '20px', 
+                margin: '0 auto 20px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '3rem'
+              }} 
+            >
+              🎮
+            </div>
             <h4 style={{ color: 'var(--game-emerald)', fontSize: '1.2rem', marginBottom: '10px' }}>
               楽しさ
             </h4>

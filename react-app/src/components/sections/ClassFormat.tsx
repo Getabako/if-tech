@@ -4,7 +4,7 @@ const ClassFormat: React.FC = () => {
   return (
     <section className="section" style={{ 
       position: 'relative', 
-      background: 'url(/images/tech25.png) center/cover no-repeat', 
+      background: 'linear-gradient(135deg, rgba(63, 81, 181, 0.3), rgba(76, 175, 80, 0.3), rgba(255, 193, 7, 0.3))', 
       minHeight: '800px' 
     }}>
       <div className="container mx-auto text-center">

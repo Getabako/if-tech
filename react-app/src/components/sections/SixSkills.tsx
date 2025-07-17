@@ -133,7 +133,7 @@ const SixSkills: React.FC = () => {
     <>
       <section className="section" style={{ 
         position: 'relative', 
-        background: 'url(/images/tech14.png) center/cover no-repeat', 
+        background: 'linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(33, 150, 243, 0.3), rgba(156, 39, 176, 0.3))', 
         minHeight: '1000px' 
       }}>
         <div className="container mx-auto text-center">

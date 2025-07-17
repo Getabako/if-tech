@@ -17,16 +17,21 @@ const Environment: React.FC = () => {
           gap: '40px' 
         }}>
           <div className="game-card">
-            <img 
-              src="/images/tech26.png" 
-              alt="少人数制クラス" 
-              className="responsive-img" 
+            <div 
               style={{ 
+                width: '100%',
+                height: '200px',
+                background: 'linear-gradient(135deg, var(--game-blue), var(--game-purple))',
+                borderRadius: '15px',
                 marginBottom: '20px',
-                aspectRatio: '16/9',
-                objectFit: 'cover'
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '4rem'
               }} 
-            />
+            >
+              👥
+            </div>
             <h3 style={{ 
               textAlign: 'center', 
               fontSize: '1.5rem', 
@@ -41,16 +46,21 @@ const Environment: React.FC = () => {
           </div>
           
           <div className="game-card">
-            <img 
-              src="/images/tech27.png" 
-              alt="オンライン学習環境" 
-              className="responsive-img" 
+            <div 
               style={{ 
+                width: '100%',
+                height: '200px',
+                background: 'linear-gradient(135deg, var(--game-emerald), var(--game-green))',
+                borderRadius: '15px',
                 marginBottom: '20px',
-                aspectRatio: '16/9',
-                objectFit: 'cover'
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '4rem'
               }} 
-            />
+            >
+              💻
+            </div>
             <h3 style={{ 
               textAlign: 'center', 
               fontSize: '1.5rem', 
@@ -65,16 +75,21 @@ const Environment: React.FC = () => {
           </div>
           
           <div className="game-card">
-            <img 
-              src="/images/tech28.png" 
-              alt="専用Discord" 
-              className="responsive-img" 
+            <div 
               style={{ 
+                width: '100%',
+                height: '200px',
+                background: 'linear-gradient(135deg, var(--game-pink), var(--game-purple))',
+                borderRadius: '15px',
                 marginBottom: '20px',
-                aspectRatio: '16/9',
-                objectFit: 'cover'
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '4rem'
               }} 
-            />
+            >
+              💬
+            </div>
             <h3 style={{ 
               textAlign: 'center', 
               fontSize: '1.5rem', 

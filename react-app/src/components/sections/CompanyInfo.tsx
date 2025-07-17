@@ -18,11 +18,21 @@ const CompanyInfo: React.FC = () => {
             boxShadow: '0 8px 25px rgba(0,0,0,0.3), inset 0 2px 10px rgba(255,255,255,0.2), inset 0 -2px 10px rgba(0,0,0,0.2)',
             animation: 'slideInLeft 0.8s ease-out'
           }}>
-            <img 
-              src="/images/ifjukulogo.png" 
-              alt="if(塾)ロゴ" 
-              style={{ width: '120px', height: 'auto', margin: '0 auto 20px', display: 'block' }} 
-            />
+            <div 
+              style={{ 
+                width: '120px', 
+                height: '120px', 
+                background: 'linear-gradient(135deg, var(--game-green), var(--game-emerald))',
+                borderRadius: '50%',
+                margin: '0 auto 20px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '3rem'
+              }} 
+            >
+              🏫
+            </div>
             <h3 style={{ 
               fontSize: '2rem', 
               color: 'var(--game-green)', 
@@ -42,11 +52,21 @@ const CompanyInfo: React.FC = () => {
             animation: 'slideInRight 0.8s ease-out',
             animationDelay: '0.2s'
           }}>
-            <img 
-              src="/images/narutechlogo.png" 
-              alt="東成瀬テックソリューションズ株式会社ロゴ" 
-              style={{ width: '120px', height: 'auto', margin: '0 auto 20px', display: 'block' }} 
-            />
+            <div 
+              style={{ 
+                width: '120px', 
+                height: '120px', 
+                background: 'linear-gradient(135deg, var(--game-orange), var(--game-yellow))',
+                borderRadius: '50%',
+                margin: '0 auto 20px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '3rem'
+              }} 
+            >
+              🏢
+            </div>
             <h3 style={{ 
               fontSize: '2rem', 
               color: 'var(--game-blue)', 

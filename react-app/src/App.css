@@ -162,7 +162,7 @@ h3 {
   align-items: center;
   text-align: center;
   position: relative;
-  background: url('/images/tech1.png');
+  background: linear-gradient(135deg, #0f0f1e, #1a1a2e, #16213e);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
