@@ -1,21 +1,7 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "react-app/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ]
+  "buildCommand": "cd react-app && npm run build",
+  "outputDirectory": "react-app/build",
+  "installCommand": "cd react-app && npm install",
+  "devCommand": "cd react-app && npm start",
+  "framework": "create-react-app"
 }
