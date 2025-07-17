@@ -1,0 +1,673 @@
+:root {
+  /* ゲームカラー */
+  --game-green: #4CAF50;
+  --game-emerald: #00C853;
+  --game-blue: #2196F3;
+  --game-purple: #9C27B0;
+  --game-pink: #E91E63;
+  --game-yellow: #FFEB3B;
+  --game-orange: #FF9800;
+  --game-red: #F44336;
+  --game-gold: #FFD700;
+  --game-silver: #C0C0C0;
+  --game-bronze: #CD7F32;
+  
+  /* グラデーション */
+  --gradient-rainbow: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4, #FECA57, #FF6B6B);
+  --gradient-sunset: linear-gradient(135deg, #FA709A 0%, #FEE140 100%);
+  --gradient-ocean: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-fire: linear-gradient(135deg, #F093FB 0%, #F5576C 100%);
+  --gradient-mint: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  background: #0f0f1e;
+  color: white;
+  overflow-x: hidden;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="%23FFD700" stroke="%23000" stroke-width="2"/><circle cx="10" cy="10" r="3" fill="%23000"/></svg>'), auto;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* 段落テキストも大きく */
+p {
+  font-size: 1.3rem !important;
+  line-height: 1.8 !important;
+}
+
+/* リストテキストも大きく */
+li {
+  font-size: 1.2rem !important;
+  line-height: 1.7 !important;
+}
+
+/* ボタンテキストも大きく */
+.cta-button {
+  font-size: 1.8rem !important;
+}
+
+/* ゲームカード内のテキストも大きく */
+.game-card p {
+  font-size: 1.4rem !important;
+}
+
+.game-card h3 {
+  font-size: 2.2rem !important;
+}
+
+.game-card h4 {
+  font-size: 1.9rem !important;
+}
+
+/* 全ての見出しを太く強調 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 800 !important;
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.7), 4px 4px 0px rgba(0,0,0,0.3) !important;
+}
+
+h1 {
+  font-weight: 900 !important;
+  font-size: 4.5rem !important;
+}
+
+h2 {
+  font-weight: 900 !important;
+  font-size: 3.8rem !important;
+}
+
+h3 {
+  font-weight: 800 !important;
+  font-size: 2.8rem !important;
+}
+
+/* ピクセルフォント */
+.pixel-font {
+  font-family: 'Press Start 2P', cursive;
+  letter-spacing: 2px;
+}
+
+/* アニメーション */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes glow {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.5); }
+}
+
+@keyframes titleGlow {
+  0% { text-shadow: 0 0 30px rgba(255, 215, 0, 1), 0 0 60px rgba(255, 215, 0, 0.8); }
+  100% { text-shadow: 0 0 40px rgba(255, 215, 0, 1), 0 0 80px rgba(255, 215, 0, 1); }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInBottom {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes rainbowText {
+  0% { color: #FF6B6B; }
+  16.66% { color: #4ECDC4; }
+  33.33% { color: #45B7D1; }
+  50% { color: #96CEB4; }
+  66.66% { color: #FECA57; }
+  83.33% { color: #FF6B6B; }
+  100% { color: #FF6B6B; }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* セクション */
+.section {
+  padding: 80px 20px;
+  position: relative;
+  min-height: 600px;
+}
+
+.hero-section {
+  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background: url('/images/tech1.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* ゲームタイトル */
+.game-title {
+  font-family: 'Press Start 2P', cursive;
+  background: linear-gradient(45deg, var(--game-gold), var(--game-yellow), var(--game-orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+  margin-bottom: 30px;
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* スターとパーティクル */
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.particle {
+  position: absolute;
+  background: var(--game-gold);
+  width: 4px;
+  height: 4px;
+  animation: float 5s ease-in-out infinite;
+}
+
+/* XPカウンター */
+.xp-counter {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 3px solid var(--game-gold);
+  border-radius: 10px;
+  padding: 10px 20px;
+  z-index: 1000;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+/* 通知エリア */
+#notificationArea {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 1001;
+}
+
+.notification {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.9), rgba(255, 140, 0, 0.9));
+  color: black;
+  padding: 15px 25px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  animation: slideInRight 0.5s ease-out;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+}
+
+/* ゲームカード */
+.game-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 3px solid var(--game-gold);
+  border-radius: 20px;
+  padding: 30px;
+  margin: 20px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+  transform: rotate(45deg);
+  transition: all 0.5s;
+  opacity: 0;
+}
+
+.game-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 10px 40px rgba(255, 215, 0, 0.5);
+}
+
+.game-card:hover::before {
+  opacity: 1;
+  animation: shine 0.5s ease-in-out;
+}
+
+@keyframes shine {
+  0% { transform: rotate(45deg) translateX(-100%); }
+  100% { transform: rotate(45deg) translateX(100%); }
+}
+
+/* CTAボタン */
+.cta-button {
+  background: linear-gradient(135deg, var(--game-gold), var(--game-orange));
+  color: black;
+  border: none;
+  padding: 20px 40px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.cta-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.8);
+}
+
+.cta-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* プログレスバー */
+.progress-bar {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+  margin: 20px 0;
+  border: 2px solid var(--game-gold);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--game-green), var(--game-emerald));
+  border-radius: 25px;
+  position: relative;
+  overflow: hidden;
+  transition: width 1s ease-out;
+}
+
+.progress-fill::after {
+  content: attr(data-progress);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+}
+
+.progress-fill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: progressShine 2s infinite;
+}
+
+@keyframes progressShine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* スキルカード */
+.skill-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border: 2px solid var(--game-gold);
+  border-radius: 20px;
+  padding: 30px;
+  margin: 20px;
+  text-align: center;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--game-gold), var(--game-orange), var(--game-pink), var(--game-purple), var(--game-blue), var(--game-green));
+  border-radius: 20px;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s;
+  animation: gradientShift 3s ease infinite;
+  background-size: 400% 400%;
+}
+
+.skill-card:hover::before {
+  opacity: 1;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* FAQ */
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: all 0.3s;
+}
+
+.faq-item:hover {
+  border-color: var(--game-gold);
+  box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+}
+
+.faq-question {
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.faq-answer {
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  padding: 0 20px 20px;
+}
+
+.faq-toggle {
+  font-size: 1.5rem;
+  transition: transform 0.3s;
+}
+
+.faq-item.active .faq-toggle {
+  transform: rotate(45deg);
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+  h1 { font-size: 3rem !important; }
+  h2 { font-size: 2.5rem !important; }
+  h3 { font-size: 2rem !important; }
+  
+  .game-card {
+    margin: 10px;
+    padding: 20px;
+  }
+  
+  .skill-card {
+    margin: 10px;
+  }
+  
+  .hero-section .pixel-font {
+    font-size: 5rem !important;
+  }
+  
+  .hero-section p {
+    font-size: 3rem !important;
+  }
+  
+  .hero-section h3 {
+    font-size: 5rem !important;
+  }
+  
+  .cta-button {
+    font-size: 2rem !important;
+    padding: 25px 50px !important;
+  }
+  
+  .grid-cols-1.md\\:grid-cols-3 {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  
+  .grid-cols-1.md\\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section .pixel-font {
+    font-size: 3rem !important;
+  }
+  
+  .hero-section p {
+    font-size: 2rem !important;
+  }
+  
+  .hero-section h3 {
+    font-size: 4rem !important;
+  }
+  
+  .cta-button {
+    font-size: 1.8rem !important;
+    padding: 20px 40px !important;
+  }
+}
+
+/* ローディング画面 */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0f0f1e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loading-text {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2rem;
+  color: var(--game-gold);
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* スクロールバー */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--game-gold);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--game-orange);
+}
+
+/* Minecraft Block Styles */
+.minecraft-block {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    inset 0 0 0 2px rgba(255, 255, 255, 0.3),
+    inset 0 0 10px rgba(0, 0, 0, 0.3),
+    0 5px 15px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.minecraft-block:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    inset 0 0 0 2px rgba(255, 255, 255, 0.5),
+    inset 0 0 10px rgba(0, 0, 0, 0.2),
+    0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+.block-diamond {
+  background: linear-gradient(135deg, #b3d9ff, #4d94ff, #0066cc);
+}
+
+.block-gold {
+  background: linear-gradient(135deg, #ffd700, #ffb347, #ff8c00);
+}
+
+.block-grass {
+  background: linear-gradient(135deg, #90ee90, #32cd32, #228b22);
+}
+
+.block-redstone {
+  background: linear-gradient(135deg, #ff6b6b, #ff4757, #ff3742);
+}
+
+/* Responsive image with 16:9 aspect ratio */
+.responsive-img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+/* Skill Card Hover Effects */
+.clickable-skill:hover .skill-glow {
+  opacity: 1 !important;
+}
+
+.clickable-skill:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* Modal Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 20px currentColor, 0 0 30px currentColor, 0 0 40px currentColor;
+  }
+  50% {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
