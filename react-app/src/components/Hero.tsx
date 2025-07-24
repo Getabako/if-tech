@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
       className="hero-section" 
       style={{
         background: showBackground 
-          ? `url('/images/2025-07-17_18.11.33.png'), linear-gradient(135deg, #0f0f1e, #1a1a2e, #16213e)`
+          ? `url('./images/2025-07-17_18.11.33.png'), linear-gradient(135deg, #0f0f1e, #1a1a2e, #16213e)`
           : '#ffffff',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
@@ -66,7 +66,7 @@ const Hero: React.FC = () => {
           left: 0,
           width: '100%',
           height: '100%',
-          background: 'linear-gradient(135deg, rgba(15, 15, 30, 0.4), rgba(76, 175, 80, 0.3), rgba(33, 150, 243, 0.3))',
+          background: 'linear-gradient(135deg, rgba(15, 15, 30, 0.2), rgba(76, 175, 80, 0.1), rgba(33, 150, 243, 0.1))',
           opacity: showBackground ? 1 : 0,
           transition: 'opacity 1s ease-in-out',
           zIndex: 1

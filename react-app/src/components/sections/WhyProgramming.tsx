@@ -4,7 +4,7 @@ const WhyProgramming: React.FC = () => {
   return (
     <section className="section" style={{ 
       position: 'relative', 
-      background: `url('/images/lesson2.JPG'), linear-gradient(135deg, rgba(233, 30, 99, 0.3), rgba(156, 39, 176, 0.3), rgba(63, 81, 181, 0.3))`,
+      background: `url('./images/lesson2.JPG'), linear-gradient(135deg, rgba(233, 30, 99, 0.3), rgba(156, 39, 176, 0.3), rgba(63, 81, 181, 0.3))`,
       backgroundSize: 'cover',
       backgroundPosition: 'center', 
       minHeight: '800px' 
@@ -17,7 +17,7 @@ const WhyProgramming: React.FC = () => {
           left: 0,
           width: '100%',
           height: '100%',
-          background: 'linear-gradient(135deg, rgba(233, 30, 99, 0.3), rgba(156, 39, 176, 0.3), rgba(63, 81, 181, 0.3))',
+          background: 'linear-gradient(135deg, rgba(233, 30, 99, 0.1), rgba(156, 39, 176, 0.1), rgba(63, 81, 181, 0.1))',
           zIndex: 1
         }}
       />

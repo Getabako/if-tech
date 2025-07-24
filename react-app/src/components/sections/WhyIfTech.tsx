@@ -23,7 +23,7 @@ const WhyIfTech: React.FC = () => {
       <div className="container mx-auto text-center" style={{ position: 'relative', zIndex: 2 }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '30px', margin: '30px 0 50px' }}>
           <img 
-            src="/images/tech3.png" 
+            src="./images/tech3.png" 
             alt="if(Tech) logo" 
             style={{ 
               width: '120px', 
