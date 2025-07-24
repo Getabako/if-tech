@@ -21,14 +21,26 @@ const WhyIfTech: React.FC = () => {
       />
       
       <div className="container mx-auto text-center" style={{ position: 'relative', zIndex: 2 }}>
-        <h2 className="game-title" style={{ 
-          fontSize: '2.5rem', 
-          margin: '30px 0 50px',
-          textAlign: 'center',
-          textShadow: '2px 2px 0px rgba(255,255,255,0.8), -2px -2px 0px rgba(0,0,0,0.3), 0 0 20px rgba(255,215,0,0.8)'
-        }}>
-          Why if(Tech)?
-        </h2>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '30px', margin: '30px 0 50px' }}>
+          <img 
+            src="/images/tech3.png" 
+            alt="if(Tech) logo" 
+            style={{ 
+              width: '120px', 
+              height: '120px', 
+              objectFit: 'contain',
+              filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))'
+            }} 
+          />
+          <h2 className="game-title" style={{ 
+            fontSize: '2.5rem', 
+            margin: '0',
+            textAlign: 'center',
+            textShadow: '2px 2px 0px rgba(255,255,255,0.8), -2px -2px 0px rgba(0,0,0,0.3), 0 0 20px rgba(255,215,0,0.8)'
+          }}>
+            Why if(Tech)?
+          </h2>
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="game-card" style={{ 
