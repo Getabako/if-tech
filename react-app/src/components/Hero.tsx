@@ -4,7 +4,6 @@ const Hero: React.FC = () => {
   const [showAdventure, setShowAdventure] = useState(false);
   const [showX, setShowX] = useState(false);
   const [showCreative, setShowCreative] = useState(false);
-  const [showBackground, setShowBackground] = useState(false);
   const [showMainContent, setShowMainContent] = useState(false);
 
   useEffect(() => {
@@ -34,11 +33,7 @@ const Hero: React.FC = () => {
     <section 
       className="hero-section" 
       style={{
-        backgroundImage: 'url(/images/2025-07-17_18.11.33.png)',
-        backgroundColor: '#0f0f1e',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
+        background: 'url(/images/2025-07-17_18.11.33.png) center/cover no-repeat, #0f0f1e',
         minHeight: '100vh',
         width: '100%'
       }}
