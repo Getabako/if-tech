@@ -34,29 +34,14 @@ const Hero: React.FC = () => {
     <section 
       className="hero-section" 
       style={{
-        background: showBackground 
-          ? `url('./images/2025-07-17_18.11.33.png'), linear-gradient(135deg, #0f0f1e, #1a1a2e, #16213e)`
-          : '#ffffff',
+        backgroundImage: `url('/images/2025-07-17_18.11.33.png')`,
+        backgroundColor: '#0f0f1e',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
         transition: 'background 1s ease-in-out'
       }}
     >
-      {/* 白背景のオーバーレイ */}
-      <div 
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          background: '#ffffff',
-          opacity: showBackground ? 0 : 1,
-          transition: 'opacity 1s ease-in-out',
-          zIndex: 1
-        }}
-      />
       
 
       <div className="container mx-auto" style={{ position: 'relative', zIndex: 2 }}>
