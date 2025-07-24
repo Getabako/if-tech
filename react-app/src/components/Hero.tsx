@@ -66,7 +66,7 @@ const Hero: React.FC = () => {
           left: 0,
           width: '100%',
           height: '100%',
-          background: 'linear-gradient(135deg, rgba(15, 15, 30, 0.2), rgba(76, 175, 80, 0.1), rgba(33, 150, 243, 0.1))',
+          background: 'linear-gradient(135deg, rgba(15, 15, 30, 0.05), rgba(76, 175, 80, 0.02), rgba(33, 150, 243, 0.02))',
           opacity: showBackground ? 1 : 0,
           transition: 'opacity 1s ease-in-out',
           zIndex: 1

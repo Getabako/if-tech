@@ -17,7 +17,7 @@ const WhyProgramming: React.FC = () => {
           left: 0,
           width: '100%',
           height: '100%',
-          background: 'linear-gradient(135deg, rgba(233, 30, 99, 0.1), rgba(156, 39, 176, 0.1), rgba(63, 81, 181, 0.1))',
+          background: 'linear-gradient(135deg, rgba(233, 30, 99, 0.05), rgba(156, 39, 176, 0.05), rgba(63, 81, 181, 0.05))',
           zIndex: 1
         }}
       />
