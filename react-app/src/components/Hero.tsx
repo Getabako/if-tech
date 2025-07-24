@@ -58,20 +58,6 @@ const Hero: React.FC = () => {
         }}
       />
       
-      {/* 色付きマスク */}
-      <div 
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          background: 'linear-gradient(135deg, rgba(15, 15, 30, 0.05), rgba(76, 175, 80, 0.02), rgba(33, 150, 243, 0.02))',
-          opacity: showBackground ? 1 : 0,
-          transition: 'opacity 1s ease-in-out',
-          zIndex: 1
-        }}
-      />
 
       <div className="container mx-auto" style={{ position: 'relative', zIndex: 2 }}>
         {/* 冒険 × クリエイティブのアニメーション */}
