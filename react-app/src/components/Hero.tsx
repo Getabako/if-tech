@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
     <section 
       className="hero-section" 
       style={{
-        backgroundImage: `url('/images/2025-07-17_18.11.33.png')`,
+        backgroundImage: `url(${process.env.PUBLIC_URL}/images/2025-07-17_18.11.33.png)`,
         backgroundColor: '#0f0f1e',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
