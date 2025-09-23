@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>if(Tech) お問い合わせフォーム（iframe用）</title>
+    <script>
+        function submitToGoogleForm() {
+            const parentName = document.getElementById('parentName').value;
+            const childName = document.getElementById('childName').value;
+            const email = document.getElementById('email').value;
+            const remarks = document.getElementById('remarks').value;
+            const timestamp = new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' });
+            
+            // Google Apps Script URL
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxyT5sE7zgrDR2u45m7ROp0KyoVysK9XxUjozCKu2d2OQXZnt54Vq1m0UjZ0ZNF35inQg/exec';
+            
+            // URLパラメータを構築
+            const params = new URLSearchParams({
+                parentName: parentName,
+                childName: childName,
+                email: email,
+                remarks: remarks,
+                timestamp: timestamp
+            });
+            
+            // iframe内のformを使ってGETリクエストを送信
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = scriptURL + '?' + params.toString();
+            document.body.appendChild(iframe);
+            
+            // 3秒後にiframeを削除
+            setTimeout(() => {
+                document.body.removeChild(iframe);
+                // 親ウィンドウに完了を通知
+                window.parent.postMessage({ type: 'formSubmitted', success: true }, '*');
+            }, 3000);
+            
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <form id="hiddenForm" onsubmit="return submitToGoogleForm()">
+        <input type="text" id="parentName" name="parentName" required>
+        <input type="text" id="childName" name="childName" required>
+        <input type="email" id="email" name="email" required>
+        <textarea id="remarks" name="remarks"></textarea>
+        <button type="submit">送信</button>
+    </form>
+</body>
+</html>
