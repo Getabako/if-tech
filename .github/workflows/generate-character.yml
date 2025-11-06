@@ -41,7 +41,7 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           CUSTOM_PROMPT: ${{ github.event.inputs.custom_prompt }}
-        run: npm run generate-character
+        run: npm run generate-character-csv
 
       # 生成されたCSVをArtifactとしてアップロード
       - name: 生成されたCSVをアップロード
