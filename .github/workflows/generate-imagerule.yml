@@ -23,6 +23,8 @@ jobs:
       # リポジトリのチェックアウト
       - name: リポジトリをチェックアウト
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       # Node.jsのセットアップ
       - name: Node.jsをセットアップ

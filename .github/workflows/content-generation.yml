@@ -18,6 +18,8 @@ on:
 jobs:
   generate-content:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     defaults:
       run:
         working-directory: WorkFlow_origin
@@ -26,6 +28,8 @@ jobs:
       # リポジトリのチェックアウト
       - name: リポジトリをチェックアウト
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       # Node.jsのセットアップ
       - name: Node.jsをセットアップ
