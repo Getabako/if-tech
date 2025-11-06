@@ -109,6 +109,30 @@ async function generateImageRule() {
     const repositoryName = getRepositoryName();
     console.log(`📝 リポジトリ名: ${repositoryName}\n`);
 
+    // 既存のCSVファイルをチェック
+    const imageruleDir = join(__dirname, '..', 'imagerule');
+    const rulePath = join(imageruleDir, `${repositoryName}.csv`);
+    const existingCSV = existsSync(rulePath);
+
+    // 既存CSVがあり、カスタムプロンプトがない場合はスキップ
+    if (existingCSV && !customPrompt) {
+      console.log('ℹ️  既存の画像ルールCSVがあります。カスタムプロンプトが指定されていないため、生成をスキップします。\n');
+      console.log(`💡 既存のルールを更新したい場合は、カスタムプロンプトで修正内容を指定してください。\n`);
+      console.log(`📄 既存ファイル: ${rulePath}\n`);
+      return;
+    }
+
+    // 既存CSVがある場合は内容を読み込む
+    let existingRules = '';
+    if (existingCSV) {
+      const csvContent = readFileSync(rulePath, 'utf-8');
+      const lines = csvContent.split('\n').filter(line => line.trim() && !line.startsWith('setting_name,'));
+      if (lines.length > 0) {
+        existingRules = lines.join('\n');
+        console.log(`📄 既存の画像ルール（${lines.length}個）を読み込みました\n`);
+      }
+    }
+
     // business-summary.txtの読み込み（既に分析済みの場合）
     const businessSummaryPath = join(__dirname, '..', 'output', 'business-summary.txt');
     let businessSummary = '';
@@ -134,11 +158,16 @@ async function generateImageRule() {
       ? `\n# ホームページで使用されている画像\n${imagesList.join(', ')}\n（これらの画像の雰囲気やスタイルを参考にしてください）\n`
       : '';
 
+    // 既存ルールがある場合のセクション
+    const existingRulesSection = existingRules
+      ? `\n# 既存の画像一貫性ルール\n以下は既に設定されているルールです:\n\n${existingRules}\n\n上記の既存ルールに対して、以下の指示を反映して修正・追記してください:\n`
+      : '';
+
     // プロンプトの作成
     const basePrompt = `
-あなたはビジュアルブランディングの専門家です。以下の事業内容を分析して、Instagram投稿用の画像一貫性ルールを3〜5個作成してください。
+あなたはビジュアルブランディングの専門家です。${existingRules ? '既存の画像一貫性ルールを修正・更新してください。' : '以下の事業内容を分析して、Instagram投稿用の画像一貫性ルールを3〜5個作成してください。'}
 
-${customPrompt ? `\n# 追加の指示\n${customPrompt}\n` : ''}
+${existingRulesSection}${customPrompt ? `\n# ${existingRules ? '修正' : '追加'}の指示\n${customPrompt}\n` : ''}
 
 # 事業情報
 ${businessSummary || htmlContent}
@@ -170,7 +199,11 @@ ${imagesSection}
 **重要: 事業の特徴に合わせて、3〜5個のユニークなルールを作成してください。**
 `;
 
-    console.log('🤖 Gemini AIで画像一貫性ルールを生成中...\n');
+    if (existingCSV) {
+      console.log('🤖 Gemini AIで画像一貫性ルールを更新中...\n');
+    } else {
+      console.log('🤖 Gemini AIで画像一貫性ルールを生成中...\n');
+    }
 
     const result = await model.generateContent(basePrompt);
     const response = await result.response;
@@ -184,16 +217,18 @@ ${imagesSection}
     const fullCSV = header + '\n' + rulesCSV;
 
     // imageruleフォルダに保存
-    const imageruleDir = join(__dirname, '..', 'imagerule');
     if (!existsSync(imageruleDir)) {
       mkdirSync(imageruleDir, { recursive: true });
       console.log('📁 imageruleフォルダを作成しました\n');
     }
-    const rulePath = join(imageruleDir, `${repositoryName}.csv`);
 
     writeFileSync(rulePath, fullCSV, 'utf-8');
 
-    console.log('✅ 画像一貫性ルールを生成しました');
+    if (existingCSV) {
+      console.log('✅ 画像一貫性ルールを更新しました');
+    } else {
+      console.log('✅ 画像一貫性ルールを生成しました');
+    }
     console.log(`💾 保存先: ${rulePath}\n`);
 
     // 生成されたルール数を表示
