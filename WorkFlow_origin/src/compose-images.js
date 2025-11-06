@@ -191,8 +191,9 @@ function parseCSVLine(line) {
 }
 
 /**
- * テキストを行分割（\\nで分割）し、短い行を結合
+ * テキストを行分割（\\nで分割）し、短い行を結合、長い行を9文字ごとに折り返し
  * 3文字以下の行は次の行（または前の行）と結合して不要な改行を防ぐ
+ * 9文字を超える行は9文字ごとに自動的に折り返す
  */
 function splitText(text) {
   if (!text) return [];
@@ -228,7 +229,20 @@ function splitText(text) {
     optimizedLines.push(currentLine);
   }
 
-  return optimizedLines;
+  // 9文字を超える行を折り返し
+  const wrappedLines = [];
+  for (const line of optimizedLines) {
+    if (line.length <= 9) {
+      wrappedLines.push(line);
+    } else {
+      // 9文字ごとに分割
+      for (let i = 0; i < line.length; i += 9) {
+        wrappedLines.push(line.substring(i, i + 9));
+      }
+    }
+  }
+
+  return wrappedLines;
 }
 
 /**
