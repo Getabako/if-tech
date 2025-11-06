@@ -527,12 +527,12 @@ async function composeAndUploadImages() {
 
     // サンクスメッセージ画像をアップロード
     console.log('\n📮 サンクスメッセージ画像をアップロード中...');
-    const thanksMessageDir = join(__dirname, '..', 'thanksmessage');
+    const thanksMessageDir = join(__dirname, '..', 'thanks_message');
 
-    // thanksmessageフォルダが存在しない場合は作成
+    // thanks_messageフォルダが存在しない場合は作成
     if (!existsSync(thanksMessageDir)) {
       mkdirSync(thanksMessageDir, { recursive: true });
-      console.log('  📁 thanksmessageフォルダを作成しました');
+      console.log('  📁 thanks_messageフォルダを作成しました');
     }
 
     if (existsSync(thanksMessageDir)) {
@@ -564,7 +564,7 @@ async function composeAndUploadImages() {
         }
       }
     } else {
-      console.log('  ℹ️  thanksmessageフォルダが見つかりません - スキップ');
+      console.log('  ℹ️  thanks_messageフォルダが見つかりません - スキップ');
     }
 
     // 一括投稿データ.CSV作成
