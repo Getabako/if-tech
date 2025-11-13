@@ -351,6 +351,26 @@ async function composeImage(imagePath, titleText, contentText) {
 
   ctx.drawImage(img, sourceX, sourceY, sourceWidth, sourceHeight, drawX, drawY, drawWidth, drawHeight);
 
+  // ロゴを読み込んで左上に配置
+  try {
+    const logoPath = join(__dirname, '..', 'character', 'ロゴ', 'iftechlogo.png');
+    if (existsSync(logoPath)) {
+      const logo = await loadImage(logoPath);
+
+      // ロゴのサイズを調整（元のサイズの比率を保ちながら、横幅を画像の20%に）
+      const logoWidth = canvasWidth * 0.2;
+      const logoHeight = logo.height * (logoWidth / logo.width);
+
+      // 左上に配置（マージン30px）
+      const logoX = 30;
+      const logoY = 30;
+
+      ctx.drawImage(logo, logoX, logoY, logoWidth, logoHeight);
+    }
+  } catch (error) {
+    console.warn('  ⚠️  ロゴの読み込みに失敗しました:', error.message);
+  }
+
   // ランダムな色を取得（タイトルとコンテンツで異なる色）
   const titleColor = getRandomColor(true);
   const contentColor = getRandomColor(false);
