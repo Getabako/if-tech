@@ -453,9 +453,9 @@ async function composeAndUploadImages() {
       mkdirSync(composedDir, { recursive: true });
     }
 
-    // 現在の年月を取得（フォルダ名用）
+    // 現在の年月日時分を取得（フォルダ名用）
     const now = new Date();
-    const folderName = `juku_post_${now.getFullYear()}_${String(now.getMonth() + 1).padStart(2, '0')}`;
+    const folderName = `if-tech_post_${now.getFullYear()}_${String(now.getMonth() + 1).padStart(2, '0')}_${String(now.getHours()).padStart(2, '0')}_${String(now.getMinutes()).padStart(2, '0')}`;
 
     let totalComposed = 0;
     let totalUploaded = 0;
