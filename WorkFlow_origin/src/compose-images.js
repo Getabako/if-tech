@@ -640,18 +640,23 @@ async function composeAndUploadImages() {
     // ========================================
     // 画像ギャラリー用: 画像URLリストをJSONファイルに保存
     // ========================================
-    const imageUrlsData = {
-      folderName: folderName,
-      serverUrl: `https://images.if-juku.net/${folderName}/`,
-      totalImages: uploadedImageUrls.length,
-      composedImages: uploadedImageUrls,
-      thanksMessages: thanksMessageUrls || [],
-      generatedAt: new Date().toISOString()
-    };
+    try {
+      const imageUrlsData = {
+        folderName: folderName,
+        serverUrl: `https://images.if-juku.net/${folderName}/`,
+        totalImages: uploadedImageUrls.length,
+        composedImages: uploadedImageUrls,
+        thanksMessages: thanksMessageUrls || [],
+        generatedAt: new Date().toISOString()
+      };
 
-    const imageUrlsPath = join(__dirname, '..', 'output', 'image-urls.json');
-    writeFileSync(imageUrlsPath, JSON.stringify(imageUrlsData, null, 2), 'utf-8');
-    console.log(`📄 画像URLリストを保存: ${imageUrlsPath}\n`);
+      const imageUrlsPath = join(__dirname, '..', 'output', 'image-urls.json');
+      writeFileSync(imageUrlsPath, JSON.stringify(imageUrlsData, null, 2), 'utf-8');
+      console.log(`📄 画像URLリストを保存: ${imageUrlsPath}`);
+      console.log(`   画像数: ${uploadedImageUrls.length}枚\n`);
+    } catch (error) {
+      console.error(`❌ 画像URLリストの保存に失敗: ${error.message}\n`);
+    }
 
     return composedDir;
   } catch (error) {

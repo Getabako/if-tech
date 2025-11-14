@@ -152,8 +152,14 @@ jobs:
           echo "# 📸 生成された画像ギャラリー" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
+          # デバッグ: ファイルの存在を確認
+          echo "🔍 デバッグ: outputフォルダの内容"
+          ls -la output/
+
           # image-urls.jsonが存在するか確認
           if [ -f "output/image-urls.json" ]; then
+            echo "✅ image-urls.json が見つかりました"
+            cat output/image-urls.json
             # JSONから情報を取得
             FOLDER_NAME=$(cat output/image-urls.json | grep -o '"folderName": "[^"]*"' | cut -d'"' -f4)
             SERVER_URL=$(cat output/image-urls.json | grep -o '"serverUrl": "[^"]*"' | cut -d'"' -f4)
