@@ -455,7 +455,7 @@ async function composeAndUploadImages() {
 
     // 現在の年月日時分を取得（フォルダ名用）
     const now = new Date();
-    const folderName = `if-tech_post_${now.getFullYear()}_${String(now.getMonth() + 1).padStart(2, '0')}_${String(now.getHours()).padStart(2, '0')}_${String(now.getMinutes()).padStart(2, '0')}`;
+    const folderName = `if-tech_post_${now.getFullYear()}_${String(now.getMonth() + 1).padStart(2, '0')}_${String(now.getDate()).padStart(2, '0')}_${String(now.getHours()).padStart(2, '0')}_${String(now.getMinutes()).padStart(2, '0')}`;
 
     let totalComposed = 0;
     let totalUploaded = 0;
@@ -636,6 +636,22 @@ async function composeAndUploadImages() {
     console.log(`❌ 失敗: ${totalFailed}枚`);
     console.log(`💾 ローカル保存先: ${composedDir}`);
     console.log(`🌐 サーバー保存先: https://images.if-juku.net/${folderName}/\n`);
+
+    // ========================================
+    // 画像ギャラリー用: 画像URLリストをJSONファイルに保存
+    // ========================================
+    const imageUrlsData = {
+      folderName: folderName,
+      serverUrl: `https://images.if-juku.net/${folderName}/`,
+      totalImages: uploadedImageUrls.length,
+      composedImages: uploadedImageUrls,
+      thanksMessages: thanksMessageUrls || [],
+      generatedAt: new Date().toISOString()
+    };
+
+    const imageUrlsPath = join(__dirname, '..', 'output', 'image-urls.json');
+    writeFileSync(imageUrlsPath, JSON.stringify(imageUrlsData, null, 2), 'utf-8');
+    console.log(`📄 画像URLリストを保存: ${imageUrlsPath}\n`);
 
     return composedDir;
   } catch (error) {

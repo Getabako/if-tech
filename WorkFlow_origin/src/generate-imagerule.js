@@ -19,7 +19,18 @@ function isImageFile(filename) {
 }
 
 /**
- * characterフォルダから全キャラクター情報を読み込む
+ * 許可された講師のリスト
+ */
+const ALLOWED_INSTRUCTORS = [
+  '塾頭高崎翔太',
+  '塾長山﨑琢己',
+  'CTO井上陽斗',
+  '講師鈴木駿介',
+  '講師本田樹'
+];
+
+/**
+ * characterフォルダから全キャラクター情報を読み込む（許可された講師のみ）
  */
 function loadAllCharacters() {
   const characterDir = join(__dirname, '..', 'character');
@@ -31,6 +42,12 @@ function loadAllCharacters() {
 
   const characters = [];
   for (const folderName of folders) {
+    // 許可された講師のみを読み込む
+    if (!ALLOWED_INSTRUCTORS.includes(folderName)) {
+      console.log(`⏭️  ${folderName}をスキップ（許可リストに含まれていません）`);
+      continue;
+    }
+
     const csvPath = join(characterDir, folderName, `${folderName}.csv`);
     if (existsSync(csvPath)) {
       try {
@@ -180,6 +197,8 @@ ${imagesSection}
 1. **設定名**: ルールの簡潔な名前（20文字以内、日本語）
 2. **場所・環境**: 建物、部屋の特徴、家具、小道具、色調など（具体的かつ詳細に日本語で記述）
 3. **キャラクター・人物**: 年齢、性別、人数、髪型、服装、特徴的な要素（具体的に日本語で記述）
+   - **【最重要】講師として登場できるのは以下の5人のみ：塾頭高崎翔太、塾長山﨑琢己、CTO井上陽斗、講師鈴木駿介、講師本田樹**
+   - **【厳守】上記5人以外の講師や人物は絶対に作成・登場させないでください**
 4. **時間帯・照明**: 自然光/人工光、時間帯、影の雰囲気（具体的に日本語で記述）
 5. **雰囲気・スタイル**: 写実的/イラスト風、明るさ、感情、全体的な印象（具体的に日本語で記述）
 6. **追加の詳細設定**: カメラアングル、被写界深度、色調、構図など（具体的に日本語で記述）
