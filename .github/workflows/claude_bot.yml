@@ -44,8 +44,8 @@ jobs:
         run: |
           # "@claude " の部分を除去して、指示内容だけを抽出
           PROMPT=$(echo "${{ github.event.comment.body }}" | sed 's/^@claude //')
-          # -p (print mode) で非対話的に実行
-          echo "$PROMPT" | claude -p
+          # --dangerously-skip-permissions で自動承認、-p (print mode) で非対話的に実行
+          claude -p --dangerously-skip-permissions "$PROMPT"
 
       # 6. AIによる変更をコミット＆プッシュ
       - name: Commit and push changes
