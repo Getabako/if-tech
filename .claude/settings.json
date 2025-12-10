@@ -1,0 +1,39 @@
+{
+  "projectName": "if-tech",
+  "description": "if(Tech) プログラミング教室 - ホームページとInstagram自動化ワークフロー",
+  "agents": {
+    "homepage-manager": {
+      "description": "ホームページの編集・更新・改善",
+      "skills": ["homepage-design"]
+    },
+    "instagram-content-creator": {
+      "description": "Instagram投稿コンテンツの作成",
+      "skills": ["instagram-content"]
+    },
+    "image-generator": {
+      "description": "AI画像生成と合成",
+      "skills": ["image-generation"]
+    },
+    "character-manager": {
+      "description": "キャラクタープロファイル管理",
+      "skills": ["character-management"]
+    },
+    "workflow-automator": {
+      "description": "GitHub Actionsワークフロー管理",
+      "skills": ["workflow-automation"]
+    }
+  },
+  "skills": {
+    "homepage-design": "UI/UXデザインガイドライン",
+    "instagram-content": "SNSコンテンツ作成テンプレート",
+    "image-generation": "Gemini API画像生成ガイド",
+    "character-management": "キャラクターCSV管理",
+    "workflow-automation": "GitHub Actionsパイプライン"
+  },
+  "workflows": {
+    "content-generation": "Instagram投稿コンテンツ生成",
+    "generate-character": "キャラクターCSV自動生成",
+    "generate-imagerule": "画像ルール自動生成",
+    "claude_bot": "Claude Code自動化"
+  }
+}
